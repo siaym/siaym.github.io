@@ -8,13 +8,13 @@
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
   <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
   <style>
-    /* Reset & basics */
     body {
       background: #0f172a;
       color: #e0e7ff;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       overflow-x: hidden;
       cursor: url('https://cdn-icons-png.flaticon.com/512/60/60525.png'), auto;
+      scroll-behavior: smooth;
     }
     a {
       color: #60a5fa;
@@ -23,8 +23,6 @@
     a:hover {
       text-decoration: underline;
     }
-
-    /* Intro overlay animation */
     #intro {
       position: fixed;
       inset: 0;
@@ -44,8 +42,6 @@
       0% {opacity: 1;}
       100% {opacity: 0; visibility: hidden;}
     }
-
-    /* Typed terminal style */
     #terminal {
       background: #111827;
       border-radius: 0.5rem;
@@ -55,6 +51,8 @@
       font-family: 'Courier New', Courier, monospace;
       font-size: 1.15rem;
       box-shadow: 0 0 15px #2563ebaa;
+      white-space: pre-wrap;
+      min-height: 120px;
     }
     #terminal .line {
       white-space: pre-wrap;
@@ -63,11 +61,9 @@
       color: #3b82f6;
       font-weight: 700;
     }
-
-    /* Header Hero */
     header {
       text-align: center;
-      padding: 5rem 1rem 2rem 1rem;
+      padding: 4rem 1rem 2rem 1rem;
       position: relative;
       z-index: 10;
     }
@@ -96,19 +92,65 @@
       margin-top: 0.5rem;
       color: #93c5fd;
     }
-
+    main {
+      max-width: 960px;
+      margin: 2rem auto 5rem auto;
+      padding: 0 1rem;
+      z-index: 10;
+    }
+    main section {
+      background: #1e293b;
+      margin-bottom: 3rem;
+      border-radius: 1rem;
+      padding: 2rem 2rem 3rem 2rem;
+      box-shadow: 0 0 25px #3b82f6aa;
+      transition: box-shadow 0.3s ease;
+    }
+    main section:hover {
+      box-shadow: 0 0 40px #60a5facc;
+    }
+    main section h2 {
+      font-size: 2.5rem;
+      font-weight: 900;
+      margin-bottom: 1rem;
+      color: #93c5fd;
+      text-align: center;
+      text-shadow: 0 0 5px #2563ebaa;
+    }
+    main section p, main section li {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      color: #cbd5e1;
+    }
+    main section ul {
+      list-style: disc inside;
+      margin-top: 1rem;
+      color: #cbd5e1;
+    }
+    .skill-bar {
+      background: #334155;
+      border-radius: 9999px;
+      height: 1rem;
+      margin: 0.5rem 0 1.5rem 0;
+      box-shadow: inset 0 0 6px #1e293b;
+      overflow: hidden;
+    }
+    .skill-bar > div {
+      background: #3b82f6;
+      height: 100%;
+      border-radius: 9999px;
+      width: 0;
+      transition: width 2s ease-in-out;
+      box-shadow: 0 0 10px #60a5fa;
+    }
     /* Projects grid */
     #projects {
-      max-width: 960px;
-      margin: 4rem auto;
-      padding: 0 1rem;
       display: grid;
       grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
       gap: 2rem;
-      z-index: 10;
     }
     .project-card {
-      background: #1e293b;
+      background: #334155;
       border-radius: 1rem;
       box-shadow: 0 0 15px #3b82f6aa;
       padding: 1.5rem;
@@ -129,7 +171,6 @@
       color: #cbd5e1;
       font-size: 1rem;
     }
-
     /* Modal */
     #modal {
       position: fixed;
@@ -171,46 +212,15 @@
     #modal-close:hover {
       background: #60a5fa;
     }
-
-    /* Skills section */
-    #skills {
-      max-width: 900px;
-      margin: 4rem auto;
-      padding: 1rem;
-    }
-    .skill-bar {
-      background: #334155;
-      border-radius: 9999px;
-      height: 1rem;
-      margin: 0.5rem 0 1.5rem 0;
-      box-shadow: inset 0 0 6px #1e293b;
-      overflow: hidden;
-    }
-    .skill-bar > div {
-      background: #3b82f6;
-      height: 100%;
-      border-radius: 9999px;
-      width: 0;
-      transition: width 2s ease-in-out;
-      box-shadow: 0 0 10px #60a5fa;
-    }
-
-    /* Contact form */
     #contact {
-      max-width: 600px;
-      margin: 4rem auto;
-      padding: 0 1rem 4rem 1rem;
       text-align: center;
-    }
-    #contact h2 {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
-      color: #93c5fd;
     }
     #contact form {
       display: flex;
       flex-direction: column;
       gap: 1rem;
+      max-width: 600px;
+      margin: 0 auto;
     }
     #contact input, #contact textarea {
       padding: 0.75rem 1rem;
@@ -237,7 +247,6 @@
     #contact button:hover {
       background: #60a5fa;
     }
-
     /* Scrollbar for modal */
     #modal-content::-webkit-scrollbar {
       width: 6px;
@@ -250,11 +259,20 @@
       background: #2563eb;
       border-radius: 10px;
     }
+    /* Section Titles with underline */
+    main section h2::after {
+      content: '';
+      display: block;
+      width: 60px;
+      height: 3px;
+      background: #2563eb;
+      margin: 0.5rem auto 0 auto;
+      border-radius: 2px;
+    }
   </style>
 </head>
 <body>
 
-<!-- Intro Loading Animation -->
 <div id="intro">WELCOME<br>Md Syful Islam Siyam</div>
 
 <header>
@@ -266,59 +284,101 @@
 
 <section id="terminal" aria-label="AI Terminal about me" aria-live="polite"></section>
 
-<section id="projects" aria-label="Projects">
-  <h2 class="text-center text-4xl font-bold mb-8">💼 Projects</h2>
-  <div class="project-card" tabindex="0" data-title="Real-Time Bus Tracker" data-desc="Live GPS tracking system built with embedded C & microcontrollers. Visit GitHub for code." data-link="https://github.com/siaym/real-time-bus-tracker">
-    <h3>🚍 Real-Time Bus Tracker</h3>
-    <p>Live GPS tracking system built using embedded C & microcontrollers.</p>
-  </div>
-  <div class="project-card" tabindex="0" data-title="Portfolio Website" data-desc="Modern portfolio with Tailwind CSS & animations." data-link="https://siaym.github.io/">
-    <h3>🌐 Portfolio Website</h3>
-    <p>Modern, animated portfolio built with Tailwind CSS & JS frameworks.</p>
-  </div>
-  <div class="project-card" tabindex="0" data-title="Cybersecurity Toolkit" data-desc="Python tools for ethical hacking, port scanning & packet inspection." data-link="https://github.com/siaym/cybersecurity-toolkit">
-    <h3>🔐 Cybersecurity Toolkit</h3>
-    <p>Python tools for ethical hacking, port scanning & packet inspection.</p>
-  </div>
-</section>
+<main>
 
-<section id="skills" aria-label="Skills">
-  <h2 class="text-center text-4xl font-bold mb-6">🛠️ Skills</h2>
-  <div>
-    <label for="skill-c">C, C++</label>
-    <div class="skill-bar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="90" role="progressbar" id="skill-c">
-      <div style="width: 0%"></div>
-    </div>
-  </div>
-  <div>
-    <label for="skill-python">Python</label>
-    <div class="skill-bar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="85" role="progressbar" id="skill-python">
-      <div style="width: 0%"></div>
-    </div>
-  </div>
-  <div>
-    <label for="skill-web">HTML, CSS, JS</label>
-    <div class="skill-bar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="88" role="progressbar" id="skill-web">
-      <div style="width: 0%"></div>
-    </div>
-  </div>
-  <div>
-    <label for="skill-cyber">Cybersecurity</label>
-    <div class="skill-bar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="80" role="progressbar" id="skill-cyber">
-      <div style="width: 0%"></div>
-    </div>
-  </div>
-</section>
+  <section id="about" data-aos="fade-up">
+    <h2>About Me</h2>
+    <p>I'm <strong>Md Syful Islam Siyam</strong>, a Computer Science and Engineering student passionate about cybersecurity, real-time systems, and web app development. Preparing for an MSc in Cybersecurity, I focus on building secure and meaningful technology.</p>
+    <p>I enjoy working with <strong>C, C++, Python, HTML, CSS, and JavaScript</strong>. I'm passionate about clean code, ethical hacking, and solving real-world problems through technology.</p>
+    <p>Open to collaborations, internships, and global opportunities in cybersecurity, software engineering, or research.</p>
+    <p><strong>Interests:</strong> Cybersecurity & Ethical Hacking, Real-Time Software, Scalable System Design, Tech with Impact</p>
+  </section>
 
-<section id="contact" aria-label="Contact">
-  <h2>📬 Get in Touch</h2>
-  <form action="https://formspree.io/f/mayvnvyl" method="POST">
-    <input type="text" name="name" placeholder="Your Name" required aria-required="true" />
-    <input type="email" name="email" placeholder="Your Email" required aria-required="true" />
-    <textarea name="message" rows="4" placeholder="Your Message" required aria-required="true"></textarea>
-    <button type="submit">Send Message</button>
-  </form>
-</section>
+  <section id="education" data-aos="fade-up">
+    <h2>Education</h2>
+    <ul>
+      <li><strong>Daffodil International University (DIU)</strong><br>Bachelor's degree, Computer Science and Engineering<br>Expected Apr 2025</li>
+      <li><strong>BIRSHRESTHO Noor Mohammad Public School and College</strong><br>HSC, Science<br>Jan 2021 - Jun 2023, GPA: 5.00<br>Activities: Debate, Quiz, Tournaments, Science Fest</li>
+    </ul>
+  </section>
+
+  <section id="skills" data-aos="fade-up">
+    <h2>Skills</h2>
+    <div>
+      <label for="skill-c">C, C++</label>
+      <div class="skill-bar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="90" role="progressbar" id="skill-c">
+        <div></div>
+      </div>
+    </div>
+    <div>
+      <label for="skill-python">Python</label>
+      <div class="skill-bar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="85" role="progressbar" id="skill-python">
+        <div></div>
+      </div>
+    </div>
+    <div>
+      <label for="skill-web">HTML, CSS, JavaScript</label>
+      <div class="skill-bar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="88" role="progressbar" id="skill-web">
+        <div></div>
+      </div>
+    </div>
+    <div>
+      <label for="skill-cyber">Cybersecurity</label>
+      <div class="skill-bar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="80" role="progressbar" id="skill-cyber">
+        <div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects" data-aos="fade-up" aria-label="Projects">
+    <h2>Projects</h2>
+    <div class="project-card" tabindex="0" data-title="Real-Time Bus Tracker" data-desc="Live GPS tracking system built with embedded C & microcontrollers. Visit GitHub for code." data-link="https://github.com/siaym/real-time-bus-tracker">
+      <h3>🚍 Real-Time Bus Tracker</h3>
+      <p>Live GPS tracking system built using embedded C & microcontrollers.</p>
+    </div>
+    <div class="project-card" tabindex="0" data-title="Portfolio Website" data-desc="Modern portfolio with Tailwind CSS & animations." data-link="https://siaym.github.io/">
+      <h3>🌐 Portfolio Website</h3>
+      <p>Modern, animated portfolio built with Tailwind CSS & JS frameworks.</p>
+    </div>
+    <div class="project-card" tabindex="0" data-title="Cybersecurity Toolkit" data-desc="Python tools for ethical hacking, port scanning & packet inspection." data-link="https://github.com/siaym/cybersecurity-toolkit">
+      <h3>🔐 Cybersecurity Toolkit</h3>
+      <p>Python tools for ethical hacking, port scanning & packet inspection.</p>
+    </div>
+  </section>
+
+  <section id="volunteering" data-aos="fade-up">
+    <h2>Volunteering</h2>
+    <ul>
+      <li><strong>Bangladesh Red Crescent Society (BDRCS)</strong> - Disaster and Humanitarian Relief</li>
+      <li><strong>Youth Action For Social Development (YASD)</strong> - Environmental Projects</li>
+    </ul>
+  </section>
+
+  <section id="languages" data-aos="fade-up">
+    <h2>Languages</h2>
+    <ul>
+      <li>Bangla - Native or bilingual proficiency</li>
+      <li>English - Professional working proficiency</li>
+      <li>Hindi - Limited working proficiency</li>
+    </ul>
+  </section>
+
+  <section id="future-goals" data-aos="fade-up">
+    <h2>Future Goals</h2>
+    <p>My aim is to become a globally recognized cybersecurity expert and system architect. I plan to deepen my knowledge in advanced cybersecurity, real-time embedded systems, and cloud infrastructure, building scalable and secure systems that impact lives.</p>
+  </section>
+
+  <section id="contact" data-aos="fade-up" aria-label="Contact">
+    <h2>📬 Get in Touch</h2>
+    <form action="https://formspree.io/f/mayvnvyl" method="POST" aria-label="Contact form">
+      <input type="text" name="name" placeholder="Your Name" required aria-required="true" />
+      <input type="email" name="email" placeholder="Your Email" required aria-required="true" />
+      <textarea name="message" rows="4" placeholder="Your Message" required aria-required="true"></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+
+</main>
 
 <!-- Modal -->
 <div id="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" tabindex="-1">
@@ -326,112 +386,101 @@
     <button id="modal-close" aria-label="Close modal">&times;</button>
     <h3 id="modal-title"></h3>
     <p id="modal-desc"></p>
-    <a id="modal-link" href="#" target="_blank" rel="noopener" class="underline text-blue-400">View Project</a>
+    <a id="modal-link" href="#" target="_blank" rel="noopener" class="underline text-blue-400 hover:text-blue-600">See More</a>
   </div>
 </div>
 
-<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<!-- Scripts -->
 <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
 
 <script>
-  // Intro fade after 3.5s
+  // Intro fadeout
   setTimeout(() => {
     document.getElementById('intro').style.display = 'none';
   }, 3500);
 
-  // Terminal typing effect for bio
-  const terminal = document.getElementById('terminal');
-  const lines = [
-    { prompt: '>', text: 'whois siyam' },
-    { prompt: 'siyam@portfolio:~$', text: 'Md Syful Islam Siyam, CSE Student & Cybersecurity Enthusiast.' },
-    { prompt: 'siyam@portfolio:~$', text: 'Skills: C, C++, Python, HTML, CSS, JS, Ethical Hacking.' },
-    { prompt: 'siyam@portfolio:~$', text: 'Projects: Real-Time Bus Tracker, Portfolio Website, Cybersecurity Toolkit.' },
-    { prompt: 'siyam@portfolio:~$', text: 'Open to collaborations & global opportunities.' }
-  ];
+  // Typed.js setup
+  const typed = new Typed('#terminal', {
+    strings: [
+      "> Hello, I'm Md Syful Islam Siyam.",
+      "> CSE Student | Cybersecurity Enthusiast | Web & Real-Time Systems Developer.",
+      "> Skilled in C, C++, Python, Web Technologies, and Ethical Hacking.",
+      "> Passionate about clean code, scalable systems & real-world impact.",
+      "> Open for internships, collaborations, and global opportunities.",
+      "> Let's build something legendary together!"
+    ],
+    typeSpeed: 50,
+    backSpeed: 20,
+    smartBackspace: true,
+    loop: true,
+    showCursor: true,
+    cursorChar: '|',
+  });
 
-  let lineIndex = 0;
-  let charIndex = 0;
-
-  function typeLine() {
-    if(lineIndex >= lines.length) return;
-    const line = lines[lineIndex];
-    if(!terminal.children[lineIndex]){
-      const div = document.createElement('div');
-      div.className = 'line';
-      div.innerHTML = `<span class="prompt">${line.prompt}</span> `;
-      terminal.appendChild(div);
-    }
-    const currentLine = terminal.children[lineIndex];
-    if(charIndex < line.text.length){
-      currentLine.innerHTML = `<span class="prompt">${line.prompt}</span> ` + line.text.substring(0, charIndex+1);
-      charIndex++;
-      setTimeout(typeLine, 50);
-    } else {
-      lineIndex++;
-      charIndex = 0;
-      setTimeout(typeLine, 600);
-    }
-  }
-  typeLine();
-
-  // Animate skill bars on scroll
-  function animateSkillBars(){
-    const skillBars = document.querySelectorAll('.skill-bar > div');
-    skillBars.forEach((bar, idx) => {
-      const parent = bar.parentElement;
-      const width = parent.getAttribute('aria-valuenow');
-      bar.style.width = width + '%';
+  // Animate skill bars when in viewport
+  function animateSkillBars() {
+    const bars = document.querySelectorAll('.skill-bar > div');
+    bars.forEach((bar) => {
+      const width = bar.parentElement.getAttribute('aria-valuenow') + '%';
+      if (bar.style.width === '0px' || bar.style.width === '') {
+        bar.style.width = width;
+      }
     });
-    window.removeEventListener('scroll', animateSkillBars);
   }
   window.addEventListener('scroll', () => {
     const skillsSection = document.getElementById('skills');
     const rect = skillsSection.getBoundingClientRect();
-    if(rect.top < window.innerHeight){
+    if (rect.top < window.innerHeight) {
       animateSkillBars();
     }
   });
 
-  // Modal logic for projects
+  // Initialize AOS animations
+  AOS.init({
+    duration: 1000,
+    easing: 'ease-in-out',
+    once: true,
+  });
+
+  // Particles.js background config
+  particlesJS.load('particles-js', 'https://cdn.jsdelivr.net/gh/VincentGarreau/particles.js/particles.json');
+
+  // Project modal popup
+  const projects = document.querySelectorAll('.project-card');
   const modal = document.getElementById('modal');
   const modalTitle = document.getElementById('modal-title');
   const modalDesc = document.getElementById('modal-desc');
   const modalLink = document.getElementById('modal-link');
   const modalClose = document.getElementById('modal-close');
-  const projectCards = document.querySelectorAll('.project-card');
 
-  projectCards.forEach(card => {
-    card.addEventListener('click', () => {
-      modalTitle.textContent = card.dataset.title;
-      modalDesc.textContent = card.dataset.desc;
-      modalLink.href = card.dataset.link;
-      modal.style.display = 'flex';
+  projects.forEach(project => {
+    project.addEventListener('click', () => {
+      modalTitle.textContent = project.dataset.title;
+      modalDesc.textContent = project.dataset.desc;
+      modalLink.href = project.dataset.link;
+      modal.classList.add('active');
       modal.focus();
     });
-    card.addEventListener('keydown', e => {
-      if(e.key === 'Enter' || e.key === ' ') {
-        e.preventDefault();
-        card.click();
+    project.addEventListener('keypress', e => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        project.click();
       }
     });
   });
 
   modalClose.addEventListener('click', () => {
-    modal.style.display = 'none';
+    modal.classList.remove('active');
   });
 
-  modal.addEventListener('click', (e) => {
-    if(e.target === modal){
-      modal.style.display = 'none';
-    }
-  });
-
-  // AOS init
-  AOS.init({
-    duration: 900,
-    once: true
+  modal.addEventListener('click', e => {
+    if (e.target === modal) modal.classList.remove('active');
   });
 </script>
+
+<!-- Particle background -->
+<div id="particles-js" style="position: fixed; inset: 0; z-index: 0;"></div>
 
 </body>
 </html>
