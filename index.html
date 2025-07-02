@@ -3,106 +3,121 @@
 
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Md Syful Islam Siyam - Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Md Syful Islam Siyam | Portfolio</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+    .glow-text {
+      text-shadow: 0 0 10px rgba(59, 130, 246, 0.6);
+    }
+  </style>
 </head>
 
-<body class="bg-gray-100 text-gray-800 font-sans">
-  <!-- Header -->
-  <header class="bg-blue-900 text-white py-8">
-    <div class="text-center">
-      <h1 class="text-4xl font-bold mb-2">Md Syful Islam Siyam</h1>
-      <div class="flex justify-center gap-4 mt-2">
-        <a href="https://www.linkedin.com/in/siyam-itprofessional" target="_blank" class="hover:text-blue-400">LinkedIn</a>
-        <a href="https://twitter.com/siyamx360" target="_blank" class="hover:text-blue-400">Twitter</a>
-        <a href="mailto:officehub.siyam@gmail.com" class="hover:text-blue-400">Email</a>
-      </div>
+<body class="bg-gray-100 text-gray-900 font-sans">
+  <!-- Header / Hero -->
+  <header class="bg-gradient-to-br from-blue-900 to-indigo-800 text-white py-16 text-center">
+    <h1 class="text-5xl font-extrabold glow-text" id="typed"></h1>
+    <p class="mt-4 text-lg">Building Secure, Real-Time, Impactful Tech</p>
+    <p class="text-sm mt-1">📍 Dhaka, Bangladesh</p>
+    <div class="mt-6 space-x-4">
+      <a href="https://linkedin.com/in/siyam-itprofessional" target="_blank" class="text-blue-300 hover:underline">LinkedIn</a>
+      <a href="https://twitter.com/siyamx360" target="_blank" class="text-blue-300 hover:underline">X</a>
+      <a href="mailto:officehub.siyam@gmail.com" class="text-blue-300 hover:underline">Email</a>
     </div>
+    <div class="mt-8 animate-bounce text-2xl">⬇</div>
   </header>
 
-  <!-- Hero -->
-  <section class="text-center mt-8">
-    <img src="syful-profile.jpg" alt="Md Syful Islam Siyam" class="w-40 h-40 mx-auto rounded-full border-4 border-cyan-400 shadow-md">
-    <p class="mt-4 text-lg font-semibold">I'm a <span id="typed" class="text-blue-600"></span></p>
-    <p class="text-sm text-gray-600">Dhaka, Bangladesh</p>
+  <!-- About Me -->
+  <section class="max-w-5xl mx-auto px-6 py-12" id="about" data-aos="fade-up">
+    <h2 class="text-3xl font-bold mb-4 text-blue-700">About Me</h2>
+    <p class="leading-relaxed">I'm <strong>Md Syful Islam Siyam</strong>, a passionate CSE student specializing in real-time systems, cybersecurity, and clean web development. I'm dedicated to solving meaningful problems with scalable, secure technology.</p>
   </section>
 
-  <!-- Main -->
-  <main class="max-w-4xl mx-auto px-4 mt-8 space-y-10">
-    <!-- About Me -->
-    <section class="bg-white rounded-xl p-6 shadow-md">
-      <h2 class="text-2xl font-semibold border-b-2 border-blue-500 pb-2 mb-4">About Me</h2>
-      <p class="leading-relaxed">I'm Md Syful Islam Siyam, a CSE student passionate about cybersecurity, real-time systems, and clean, scalable code. I love building secure tech with real impact.</p>
-    </section>
+  <!-- Projects -->
+  <section class="bg-white py-12 px-6" id="projects" data-aos="fade-up">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="text-3xl font-bold text-blue-700 mb-6">Featured Projects</h2>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="bg-gray-100 p-4 rounded-xl shadow hover:shadow-xl transition-all">
+          <h3 class="text-xl font-semibold mb-2">Real-Time Bus Tracker</h3>
+          <p class="text-sm text-gray-600">Built in C using embedded systems and GPS modules for live tracking.</p>
+        </div>
+        <div class="bg-gray-100 p-4 rounded-xl shadow hover:shadow-xl transition-all">
+          <h3 class="text-xl font-semibold mb-2">Portfolio Website</h3>
+          <p class="text-sm text-gray-600">This modern, responsive site using TailwindCSS + JS animations.</p>
+        </div>
+        <div class="bg-gray-100 p-4 rounded-xl shadow hover:shadow-xl transition-all">
+          <h3 class="text-xl font-semibold mb-2">Cybersecurity Toolkit</h3>
+          <p class="text-sm text-gray-600">Python-based tools for network testing and vulnerability scanning.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <!-- Education -->
-    <section class="bg-white rounded-xl p-6 shadow-md">
-      <h2 class="text-2xl font-semibold border-b-2 border-blue-500 pb-2 mb-4">Education</h2>
-      <ul class="list-disc list-inside space-y-2">
-        <li><strong>Daffodil International University</strong> – BSc in CSE (Expected 2025)</li>
+  <!-- Skills -->
+  <section class="max-w-5xl mx-auto px-6 py-12" id="skills" data-aos="fade-up">
+    <h2 class="text-3xl font-bold text-blue-700 mb-6">Skills</h2>
+    <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
+      <div class="bg-blue-50 p-4 rounded shadow text-center">C, C++</div>
+      <div class="bg-blue-50 p-4 rounded shadow text-center">Python</div>
+      <div class="bg-blue-50 p-4 rounded shadow text-center">HTML, CSS, JavaScript</div>
+      <div class="bg-blue-50 p-4 rounded shadow text-center">Cybersecurity & Networking</div>
+      <div class="bg-blue-50 p-4 rounded shadow text-center">Word, Excel, PowerPoint</div>
+      <div class="bg-blue-50 p-4 rounded shadow text-center">Public Speaking & Communication</div>
+    </div>
+  </section>
+
+  <!-- Education -->
+  <section class="bg-white py-12 px-6" data-aos="fade-up">
+    <div class="max-w-5xl mx-auto">
+      <h2 class="text-3xl font-bold text-blue-700 mb-4">Education</h2>
+      <ul class="list-disc list-inside">
+        <li><strong>Daffodil International University</strong> – BSc in CSE (2021–2025)</li>
         <li><strong>BIRSHRESTHO Noor Mohammad Public School and College</strong> – HSC, GPA: 5.00</li>
       </ul>
-    </section>
+    </div>
+  </section>
 
-    <!-- Skills -->
-    <section class="bg-white rounded-xl p-6 shadow-md">
-      <h2 class="text-2xl font-semibold border-b-2 border-blue-500 pb-2 mb-4">Skills</h2>
-      <ul class="grid grid-cols-2 gap-3">
-        <li>✅ C, C++, Python</li>
-        <li>✅ HTML, CSS, JavaScript</li>
-        <li>✅ Word, Excel, PowerPoint</li>
-        <li>✅ Public Communication</li>
-        <li>✅ Cybersecurity, Clean Code</li>
-      </ul>
-    </section>
+  <!-- Volunteering -->
+  <section class="max-w-5xl mx-auto px-6 py-12" data-aos="fade-up">
+    <h2 class="text-3xl font-bold text-blue-700 mb-4">Volunteering</h2>
+    <ul class="list-disc list-inside">
+      <li>Bangladesh Red Crescent Society – Disaster Relief</li>
+      <li>Youth Action for Social Development – Environmental Projects</li>
+    </ul>
+  </section>
 
-    <!-- Volunteering -->
-    <section class="bg-white rounded-xl p-6 shadow-md">
-      <h2 class="text-2xl font-semibold border-b-2 border-blue-500 pb-2 mb-4">Volunteering</h2>
-      <ul class="list-disc list-inside">
-        <li>BDRCS – Disaster Relief</li>
-        <li>YASD – Environmental Projects</li>
-      </ul>
-    </section>
-
-    <!-- Languages -->
-    <section class="bg-white rounded-xl p-6 shadow-md">
-      <h2 class="text-2xl font-semibold border-b-2 border-blue-500 pb-2 mb-4">Languages</h2>
-      <ul class="list-disc list-inside">
-        <li>Bangla – Native</li>
-        <li>English – Professional</li>
-        <li>Hindi – Limited</li>
-      </ul>
-    </section>
-
-    <!-- Goals -->
-    <section class="bg-white rounded-xl p-6 shadow-md">
-      <h2 class="text-2xl font-semibold border-b-2 border-blue-500 pb-2 mb-4">Future Goals</h2>
-      <p>Become a global cybersecurity expert and architect secure, scalable real-time systems with cloud and embedded technologies.</p>
-    </section>
-
-    <!-- Contact -->
-    <section class="bg-white rounded-xl p-6 shadow-md">
-      <h2 class="text-2xl font-semibold border-b-2 border-blue-500 pb-2 mb-4">Contact</h2>
-      <p>Email: <a href="mailto:officehub.siyam@gmail.com" class="text-blue-600">officehub.siyam@gmail.com</a></p>
-      <p>LinkedIn: <a href="https://www.linkedin.com/in/siyam-itprofessional" class="text-blue-600">siyam-itprofessional</a></p>
-      <p>Twitter: <a href="https://twitter.com/siyamx360" class="text-blue-600">@siyamx360</a></p>
-    </section>
-  </main>
+  <!-- Contact -->
+  <section class="bg-white py-12 px-6" id="contact" data-aos="fade-up">
+    <div class="max-w-md mx-auto">
+      <h2 class="text-3xl font-bold text-blue-700 mb-6">Contact Me</h2>
+      <form action="https://formspree.io/f/mayvnvyl" method="POST" class="space-y-4">
+        <input type="text" name="name" placeholder="Your Name" required class="w-full border px-4 py-2 rounded">
+        <input type="email" name="email" placeholder="Your Email" required class="w-full border px-4 py-2 rounded">
+        <textarea name="message" rows="4" placeholder="Your Message" required class="w-full border px-4 py-2 rounded"></textarea>
+        <button type="submit" class="bg-blue-700 text-white px-4 py-2 rounded hover:bg-blue-800">Send Message</button>
+      </form>
+    </div>
+  </section>
 
   <!-- Footer -->
-  <footer class="bg-blue-900 text-white text-center py-4 mt-8">
+  <footer class="bg-blue-900 text-white py-6 text-center mt-12">
     <p>&copy; 2025 Md Syful Islam Siyam. All rights reserved.</p>
   </footer>
 
-  <!-- Typed.js script -->
+  <!-- Scripts -->
   <script>
+    AOS.init();
     new Typed("#typed", {
-      strings: ["CSE Student", "Web App Developer", "Cybersecurity Enthusiast"],
-      typeSpeed: 50,
-      backSpeed: 30,
+      strings: ["Md Syful Islam Siyam", "CSE Student", "Cybersecurity Enthusiast", "Web App Developer"],
+      typeSpeed: 40,
+      backSpeed: 25,
       loop: true
     });
   </script>
