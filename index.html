@@ -15,101 +15,100 @@
       scroll-behavior: smooth;
     }
     .glow-text {
-      text-shadow: 0 0 10px rgba(59, 130, 246, 0.6);
+      text-shadow: 0 0 10px rgba(59, 130, 246, 0.7);
+    }
+    .hero-animated {
+      background: radial-gradient(circle at 20% 30%, #3b82f6 0%, #1e3a8a 100%);
+      animation: gradientMove 10s ease infinite;
+      background-size: 400% 400%;
+    }
+    @keyframes gradientMove {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
     }
   </style>
 </head>
 
 <body class="bg-gray-100 text-gray-900 font-sans">
   <!-- Header / Hero -->
-  <header class="bg-gradient-to-br from-blue-900 to-indigo-800 text-white py-16 text-center">
-    <h1 class="text-5xl font-extrabold glow-text" id="typed"></h1>
-    <p class="mt-4 text-lg">Building Secure, Real-Time, Impactful Tech</p>
-    <p class="text-sm mt-1">📍 Dhaka, Bangladesh</p>
-    <div class="mt-6 space-x-4">
-      <a href="https://linkedin.com/in/siyam-itprofessional" target="_blank" class="text-blue-300 hover:underline">LinkedIn</a>
-      <a href="https://twitter.com/siyamx360" target="_blank" class="text-blue-300 hover:underline">X</a>
-      <a href="mailto:officehub.siyam@gmail.com" class="text-blue-300 hover:underline">Email</a>
+  <header class="hero-animated text-white py-20 text-center relative overflow-hidden">
+    <div class="absolute -top-10 -left-10 w-80 h-80 bg-blue-400 rounded-full opacity-30 blur-3xl animate-pulse"></div>
+    <div class="absolute -bottom-10 -right-10 w-80 h-80 bg-indigo-600 rounded-full opacity-30 blur-3xl animate-pulse"></div>
+    <img src="syful-profile.jpg" alt="Md Syful Islam Siyam" class="w-32 h-32 mx-auto rounded-full border-4 border-white shadow-xl mb-4 z-10 relative">
+    <h1 class="text-5xl font-extrabold glow-text z-10 relative" id="typed"></h1>
+    <p class="mt-4 text-lg z-10 relative">Building Secure, Real-Time, Impactful Tech</p>
+    <p class="text-sm mt-1 z-10 relative">📍 Dhaka, Bangladesh</p>
+    <div class="mt-6 space-x-4 z-10 relative">
+      <a href="https://linkedin.com/in/siyam-itprofessional" target="_blank" class="text-blue-100 hover:underline">LinkedIn</a>
+      <a href="https://twitter.com/siyamx360" target="_blank" class="text-blue-100 hover:underline">X</a>
+      <a href="mailto:officehub.siyam@gmail.com" class="text-blue-100 hover:underline">Email</a>
     </div>
-    <div class="mt-8 animate-bounce text-2xl">⬇</div>
+    <div class="mt-8 animate-bounce text-2xl z-10 relative">⬇</div>
   </header>
 
   <!-- About Me -->
-  <section class="max-w-5xl mx-auto px-6 py-12" id="about" data-aos="fade-up">
-    <h2 class="text-3xl font-bold mb-4 text-blue-700">About Me</h2>
-    <p class="leading-relaxed">I'm <strong>Md Syful Islam Siyam</strong>, a passionate CSE student specializing in real-time systems, cybersecurity, and clean web development. I'm dedicated to solving meaningful problems with scalable, secure technology.</p>
+  <section class="max-w-5xl mx-auto px-6 py-16" id="about" data-aos="fade-up">
+    <h2 class="text-4xl font-bold mb-6 text-blue-800">Who Am I?</h2>
+    <p class="leading-relaxed text-lg">I'm <strong>Md Syful Islam Siyam</strong>, a CSE student with a deep passion for real-time systems, ethical hacking, and crafting secure digital infrastructure. I strive to combine technical mastery with real-world impact.</p>
   </section>
 
   <!-- Projects -->
-  <section class="bg-white py-12 px-6" id="projects" data-aos="fade-up">
+  <section class="bg-gradient-to-tr from-white to-blue-50 py-16 px-6" id="projects" data-aos="fade-up">
     <div class="max-w-6xl mx-auto">
-      <h2 class="text-3xl font-bold text-blue-700 mb-6">Featured Projects</h2>
-      <div class="grid md:grid-cols-3 gap-6">
-        <div class="bg-gray-100 p-4 rounded-xl shadow hover:shadow-xl transition-all">
-          <h3 class="text-xl font-semibold mb-2">Real-Time Bus Tracker</h3>
-          <p class="text-sm text-gray-600">Built in C using embedded systems and GPS modules for live tracking.</p>
+      <h2 class="text-4xl font-bold text-blue-800 mb-10">💼 My Projects</h2>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="bg-white p-6 rounded-xl shadow-lg hover:scale-105 transition-transform duration-300">
+          <h3 class="text-2xl font-semibold mb-2">🚍 Real-Time Bus Tracker</h3>
+          <p class="text-gray-700">Live GPS tracking system built using embedded C & microcontrollers.</p>
         </div>
-        <div class="bg-gray-100 p-4 rounded-xl shadow hover:shadow-xl transition-all">
-          <h3 class="text-xl font-semibold mb-2">Portfolio Website</h3>
-          <p class="text-sm text-gray-600">This modern, responsive site using TailwindCSS + JS animations.</p>
+        <div class="bg-white p-6 rounded-xl shadow-lg hover:scale-105 transition-transform duration-300">
+          <h3 class="text-2xl font-semibold mb-2">🌐 Portfolio Website</h3>
+          <p class="text-gray-700">Modern, animated portfolio built with Tailwind CSS & JS frameworks.</p>
         </div>
-        <div class="bg-gray-100 p-4 rounded-xl shadow hover:shadow-xl transition-all">
-          <h3 class="text-xl font-semibold mb-2">Cybersecurity Toolkit</h3>
-          <p class="text-sm text-gray-600">Python-based tools for network testing and vulnerability scanning.</p>
+        <div class="bg-white p-6 rounded-xl shadow-lg hover:scale-105 transition-transform duration-300">
+          <h3 class="text-2xl font-semibold mb-2">🔐 Cybersecurity Toolkit</h3>
+          <p class="text-gray-700">Python tools for ethical hacking, port scanning & packet inspection.</p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Skills -->
-  <section class="max-w-5xl mx-auto px-6 py-12" id="skills" data-aos="fade-up">
-    <h2 class="text-3xl font-bold text-blue-700 mb-6">Skills</h2>
-    <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
-      <div class="bg-blue-50 p-4 rounded shadow text-center">C, C++</div>
-      <div class="bg-blue-50 p-4 rounded shadow text-center">Python</div>
-      <div class="bg-blue-50 p-4 rounded shadow text-center">HTML, CSS, JavaScript</div>
-      <div class="bg-blue-50 p-4 rounded shadow text-center">Cybersecurity & Networking</div>
-      <div class="bg-blue-50 p-4 rounded shadow text-center">Word, Excel, PowerPoint</div>
-      <div class="bg-blue-50 p-4 rounded shadow text-center">Public Speaking & Communication</div>
+  <section class="max-w-6xl mx-auto px-6 py-16" id="skills" data-aos="fade-up">
+    <h2 class="text-4xl font-bold text-blue-800 mb-6">🛠️ Skills</h2>
+    <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-6 text-center">
+      <div class="bg-blue-100 p-4 rounded-xl">C, C++</div>
+      <div class="bg-blue-100 p-4 rounded-xl">Python</div>
+      <div class="bg-blue-100 p-4 rounded-xl">HTML, CSS, JavaScript</div>
+      <div class="bg-blue-100 p-4 rounded-xl">Cybersecurity & Networking</div>
+      <div class="bg-blue-100 p-4 rounded-xl">Word, Excel, PowerPoint</div>
+      <div class="bg-blue-100 p-4 rounded-xl">Public Speaking & Communication</div>
     </div>
-  </section>
-
-  <!-- Education -->
-  <section class="bg-white py-12 px-6" data-aos="fade-up">
-    <div class="max-w-5xl mx-auto">
-      <h2 class="text-3xl font-bold text-blue-700 mb-4">Education</h2>
-      <ul class="list-disc list-inside">
-        <li><strong>Daffodil International University</strong> – BSc in CSE (2021–2025)</li>
-        <li><strong>BIRSHRESTHO Noor Mohammad Public School and College</strong> – HSC, GPA: 5.00</li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- Volunteering -->
-  <section class="max-w-5xl mx-auto px-6 py-12" data-aos="fade-up">
-    <h2 class="text-3xl font-bold text-blue-700 mb-4">Volunteering</h2>
-    <ul class="list-disc list-inside">
-      <li>Bangladesh Red Crescent Society – Disaster Relief</li>
-      <li>Youth Action for Social Development – Environmental Projects</li>
-    </ul>
   </section>
 
   <!-- Contact -->
-  <section class="bg-white py-12 px-6" id="contact" data-aos="fade-up">
-    <div class="max-w-md mx-auto">
-      <h2 class="text-3xl font-bold text-blue-700 mb-6">Contact Me</h2>
+  <section class="bg-gradient-to-br from-blue-100 to-white py-16 px-6" id="contact" data-aos="fade-up">
+    <div class="max-w-lg mx-auto text-center">
+      <h2 class="text-4xl font-bold text-blue-800 mb-6">📬 Let's Connect</h2>
       <form action="https://formspree.io/f/mayvnvyl" method="POST" class="space-y-4">
-        <input type="text" name="name" placeholder="Your Name" required class="w-full border px-4 py-2 rounded">
-        <input type="email" name="email" placeholder="Your Email" required class="w-full border px-4 py-2 rounded">
-        <textarea name="message" rows="4" placeholder="Your Message" required class="w-full border px-4 py-2 rounded"></textarea>
-        <button type="submit" class="bg-blue-700 text-white px-4 py-2 rounded hover:bg-blue-800">Send Message</button>
+        <input type="text" name="name" placeholder="Your Name" required class="w-full border border-blue-200 px-4 py-2 rounded-lg">
+        <input type="email" name="email" placeholder="Your Email" required class="w-full border border-blue-200 px-4 py-2 rounded-lg">
+        <textarea name="message" rows="4" placeholder="Your Message" required class="w-full border border-blue-200 px-4 py-2 rounded-lg"></textarea>
+        <button type="submit" class="bg-blue-700 text-white px-6 py-2 rounded-lg hover:bg-blue-800 transition">Send Message</button>
       </form>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer class="bg-blue-900 text-white py-6 text-center mt-12">
-    <p>&copy; 2025 Md Syful Islam Siyam. All rights reserved.</p>
+  <footer class="bg-blue-900 text-white py-8 text-center">
+    <p>&copy; 2025 Md Syful Islam Siyam. Made with ❤️ and clean code.</p>
   </footer>
 
   <!-- Scripts -->
@@ -117,8 +116,8 @@
     AOS.init();
     new Typed("#typed", {
       strings: ["Md Syful Islam Siyam", "CSE Student", "Cybersecurity Enthusiast", "Web App Developer"],
-      typeSpeed: 40,
-      backSpeed: 25,
+      typeSpeed: 50,
+      backSpeed: 30,
       loop: true
     });
   </script>
