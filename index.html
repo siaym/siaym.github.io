@@ -9,7 +9,7 @@
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet" />
 
-  <!-- Typed.js -->
+  <!-- Typed.js CDN -->
   <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
 
   <style>
@@ -38,7 +38,7 @@
     .container {
       max-width: 960px;
       margin: auto;
-      padding: 2rem 1rem;
+      padding: 2rem 1rem 4rem;
     }
     header {
       text-align: center;
@@ -74,6 +74,7 @@
       letter-spacing: 0.12em;
       text-shadow: 0 0 10px #00e0ffcc;
       min-height: 40px;
+      margin-bottom: 1rem;
     }
     header p.subtitle {
       margin-top: 0.6rem;
@@ -395,41 +396,40 @@
       <h2>Future Goals</h2>
       <p>
         My aim is to become a globally recognized cybersecurity expert and system architect. I plan to deepen my knowledge in advanced cybersecurity,
-        real-time embedded systems, and cloud infrastructure, building scalable and secure systems that impact lives.
+        real-time embedded systems, and cloud infrastructure to build scalable and secure systems that impact lives.
       </p>
     </section>
 
     <section id="contact">
       <h2>Contact Me</h2>
       <form action="https://formspree.io/f/mayvnvyl" method="POST" aria-label="Contact form">
-        <input type="text" name="name" placeholder="Your Name" required aria-required="true" />
-        <input type="email" name="email" placeholder="Your Email" required aria-required="true" />
-        <textarea name="message" rows="5" placeholder="Your Message" required aria-required="true"></textarea>
-        <button type="submit">Send Message</button>
+        <input type="text" name="name" placeholder="Your Name" required autocomplete="name" />
+        <input type="email" name="email" placeholder="Your Email" required autocomplete="email" />
+        <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+        <button type="submit" aria-label="Send message button">Send Message</button>
       </form>
     </section>
   </main>
 
   <footer>
-    <p>&copy; 2025 Md Syful Islam Siyam. Crafted with passion and clean code.</p>
+    &copy; 2025 Md Syful Islam Siyam | Made with 💙 and clean code
   </footer>
 
   <script>
-    // Typed.js typed text effect
-    new Typed('#typed', {
-      strings: [
-        'CSE Student',
-        'Web App Developer',
-        'Cybersecurity Enthusiast',
-        'Real-Time Systems Builder',
-        'Open to Global Opportunities'
-      ],
-      typeSpeed: 50,
-      backSpeed: 30,
-      backDelay: 1500,
-      loop: true,
-      showCursor: true,
-      cursorChar: '|'
+    document.addEventListener("DOMContentLoaded", function () {
+      var typed = new Typed('#typed', {
+        strings: [
+          'CSE Student',
+          'Cybersecurity Enthusiast',
+          'Web App Developer',
+          'Real-Time Systems Lover',
+          'Ethical Hacker'
+        ],
+        typeSpeed: 60,
+        backSpeed: 30,
+        backDelay: 2000,
+        loop: true
+      });
     });
   </script>
 
