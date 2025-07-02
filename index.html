@@ -1,485 +1,160 @@
 <!DOCTYPE html>
-<html lang="en" >
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Md Syful Islam Siyam | Legendary Portfolio</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
-  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
-  <style>
-    body {
-      background: #0f172a;
-      color: #e0e7ff;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      overflow-x: hidden;
-      cursor: url('https://cdn-icons-png.flaticon.com/512/60/60525.png'), auto;
-      scroll-behavior: smooth;
-    }
-    a {
-      color: #60a5fa;
-      text-decoration: none;
-    }
-    a:hover {
-      text-decoration: underline;
-    }
-    #intro {
-      position: fixed;
-      inset: 0;
-      background: radial-gradient(circle, #3b82f6, #1e3a8a);
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      z-index: 9999;
-      color: white;
-      font-size: 2rem;
-      font-weight: 900;
-      letter-spacing: 0.3em;
-      animation: introFade 3.5s forwards;
-    }
-    @keyframes introFade {
-      0% {opacity: 1;}
-      100% {opacity: 0; visibility: hidden;}
-    }
-    #terminal {
-      background: #111827;
-      border-radius: 0.5rem;
-      padding: 2rem;
-      max-width: 800px;
-      margin: 3rem auto;
-      font-family: 'Courier New', Courier, monospace;
-      font-size: 1.15rem;
-      box-shadow: 0 0 15px #2563ebaa;
-      white-space: pre-wrap;
-      min-height: 120px;
-    }
-    #terminal .line {
-      white-space: pre-wrap;
-    }
-    #terminal .prompt {
-      color: #3b82f6;
-      font-weight: 700;
-    }
-    header {
-      text-align: center;
-      padding: 4rem 1rem 2rem 1rem;
-      position: relative;
-      z-index: 10;
-    }
-    header img {
-      width: 160px;
-      height: 160px;
-      border-radius: 50%;
-      border: 4px solid #2563eb;
-      box-shadow: 0 0 15px #2563ebaa;
-      margin-bottom: 1rem;
-      transition: transform 0.4s ease;
-    }
-    header img:hover {
-      transform: scale(1.1) rotate(10deg);
-      box-shadow: 0 0 25px #60a5fa;
-    }
-    header h1 {
-      font-size: 3.5rem;
-      font-weight: 900;
-      letter-spacing: 0.15em;
-      margin-bottom: 0.2rem;
-      text-shadow: 0 0 8px #2563ebaa;
-    }
-    header p {
-      font-size: 1.25rem;
-      margin-top: 0.5rem;
-      color: #93c5fd;
-    }
-    main {
-      max-width: 960px;
-      margin: 2rem auto 5rem auto;
-      padding: 0 1rem;
-      z-index: 10;
-    }
-    main section {
-      background: #1e293b;
-      margin-bottom: 3rem;
-      border-radius: 1rem;
-      padding: 2rem 2rem 3rem 2rem;
-      box-shadow: 0 0 25px #3b82f6aa;
-      transition: box-shadow 0.3s ease;
-    }
-    main section:hover {
-      box-shadow: 0 0 40px #60a5facc;
-    }
-    main section h2 {
-      font-size: 2.5rem;
-      font-weight: 900;
-      margin-bottom: 1rem;
-      color: #93c5fd;
-      text-align: center;
-      text-shadow: 0 0 5px #2563ebaa;
-    }
-    main section p, main section li {
-      font-size: 1.1rem;
-      line-height: 1.6;
-      color: #cbd5e1;
-    }
-    main section ul {
-      list-style: disc inside;
-      margin-top: 1rem;
-      color: #cbd5e1;
-    }
-    .skill-bar {
-      background: #334155;
-      border-radius: 9999px;
-      height: 1rem;
-      margin: 0.5rem 0 1.5rem 0;
-      box-shadow: inset 0 0 6px #1e293b;
-      overflow: hidden;
-    }
-    .skill-bar > div {
-      background: #3b82f6;
-      height: 100%;
-      border-radius: 9999px;
-      width: 0;
-      transition: width 2s ease-in-out;
-      box-shadow: 0 0 10px #60a5fa;
-    }
-    /* Projects grid */
-    #projects {
-      display: grid;
-      grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
-      gap: 2rem;
-    }
-    .project-card {
-      background: #334155;
-      border-radius: 1rem;
-      box-shadow: 0 0 15px #3b82f6aa;
-      padding: 1.5rem;
-      cursor: pointer;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      perspective: 1000px;
-    }
-    .project-card:hover {
-      transform: scale(1.05) rotateY(5deg) rotateX(3deg);
-      box-shadow: 0 0 30px #60a5facc;
-    }
-    .project-card h3 {
-      font-size: 1.5rem;
-      margin-bottom: 0.75rem;
-      color: #93c5fd;
-    }
-    .project-card p {
-      color: #cbd5e1;
-      font-size: 1rem;
-    }
-    /* Modal */
-    #modal {
-      position: fixed;
-      inset: 0;
-      background: rgba(15, 23, 42, 0.95);
-      display: none;
-      justify-content: center;
-      align-items: center;
-      padding: 2rem;
-      z-index: 99999;
-      overflow-y: auto;
-    }
-    #modal.active {
-      display: flex;
-    }
-    #modal-content {
-      background: #1e293b;
-      border-radius: 1rem;
-      max-width: 600px;
-      width: 100%;
-      padding: 2rem;
-      box-shadow: 0 0 40px #3b82f6cc;
-      color: #e0e7ff;
-      position: relative;
-    }
-    #modal-close {
-      position: absolute;
-      top: 1rem;
-      right: 1rem;
-      background: #2563eb;
-      border: none;
-      border-radius: 0.5rem;
-      color: white;
-      padding: 0.25rem 0.5rem;
-      cursor: pointer;
-      font-size: 1.25rem;
-      transition: background 0.3s ease;
-    }
-    #modal-close:hover {
-      background: #60a5fa;
-    }
-    #contact {
-      text-align: center;
-    }
-    #contact form {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-      max-width: 600px;
-      margin: 0 auto;
-    }
-    #contact input, #contact textarea {
-      padding: 0.75rem 1rem;
-      border-radius: 0.5rem;
-      border: none;
-      font-size: 1rem;
-      resize: none;
-    }
-    #contact input:focus, #contact textarea:focus {
-      outline: none;
-      box-shadow: 0 0 10px #60a5fa;
-      border: 2px solid #2563eb;
-    }
-    #contact button {
-      background: #2563eb;
-      color: white;
-      font-weight: 700;
-      padding: 0.75rem 1rem;
-      border-radius: 0.75rem;
-      cursor: pointer;
-      font-size: 1.1rem;
-      transition: background 0.3s ease;
-    }
-    #contact button:hover {
-      background: #60a5fa;
-    }
-    /* Scrollbar for modal */
-    #modal-content::-webkit-scrollbar {
-      width: 6px;
-    }
-    #modal-content::-webkit-scrollbar-track {
-      background: #1e293b;
-      border-radius: 10px;
-    }
-    #modal-content::-webkit-scrollbar-thumb {
-      background: #2563eb;
-      border-radius: 10px;
-    }
-    /* Section Titles with underline */
-    main section h2::after {
-      content: '';
-      display: block;
-      width: 60px;
-      height: 3px;
-      background: #2563eb;
-      margin: 0.5rem auto 0 auto;
-      border-radius: 2px;
-    }
-  </style>
+  <title>Md Syful Islam Siyam | Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
 </head>
 <body>
-
-<div id="intro">WELCOME<br>Md Syful Islam Siyam</div>
-
-<header>
-  <img src="syful-profile.jpg" alt="Md Syful Islam Siyam" />
-  <h1>MD SYFUL ISLAM SIYAM</h1>
-  <p>Cybersecurity Enthusiast | Web & Real-Time Systems Developer</p>
-  <p>Dhaka, Bangladesh</p>
-</header>
-
-<section id="terminal" aria-label="AI Terminal about me" aria-live="polite"></section>
-
-<main>
-
-  <section id="about" data-aos="fade-up">
-    <h2>About Me</h2>
-    <p>I'm <strong>Md Syful Islam Siyam</strong>, a Computer Science and Engineering student passionate about cybersecurity, real-time systems, and web app development. Preparing for an MSc in Cybersecurity, I focus on building secure and meaningful technology.</p>
-    <p>I enjoy working with <strong>C, C++, Python, HTML, CSS, and JavaScript</strong>. I'm passionate about clean code, ethical hacking, and solving real-world problems through technology.</p>
-    <p>Open to collaborations, internships, and global opportunities in cybersecurity, software engineering, or research.</p>
-    <p><strong>Interests:</strong> Cybersecurity & Ethical Hacking, Real-Time Software, Scalable System Design, Tech with Impact</p>
-  </section>
-
-  <section id="education" data-aos="fade-up">
-    <h2>Education</h2>
-    <ul>
-      <li><strong>Daffodil International University (DIU)</strong><br>Bachelor's degree, Computer Science and Engineering<br>Expected Apr 2025</li>
-      <li><strong>BIRSHRESTHO Noor Mohammad Public School and College</strong><br>HSC, Science<br>Jan 2021 - Jun 2023, GPA: 5.00<br>Activities: Debate, Quiz, Tournaments, Science Fest</li>
-    </ul>
-  </section>
-
-  <section id="skills" data-aos="fade-up">
-    <h2>Skills</h2>
-    <div>
-      <label for="skill-c">C, C++</label>
-      <div class="skill-bar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="90" role="progressbar" id="skill-c">
-        <div></div>
+  <canvas id="particles-bg"></canvas>
+  <header>
+    <div class="launch-badge">PORTFOLIO LAUNCH</div>
+    <img src="syful-profile.jpg" alt="Md Syful Islam Siyam" />
+    <h1>Md Syful Islam Siyam</h1>
+    <div class="typed-text" id="typed"></div>
+    <p class="subtitle">
+      Building Secure & Real-Time Systems | Open to Global Opportunities | Dhaka, Bangladesh
+    </p>
+    <nav class="social-links" aria-label="Social Media Links">
+      <a href="https://linkedin.com/in/siyam-itprofessional" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      <a href="https://twitter.com/siyamx360" target="_blank" rel="noopener noreferrer">X (Twitter)</a>
+      <a href="mailto:officehub.siyam@gmail.com">Email</a>
+    </nav>
+    <a href="#contact" class="cta-button">Contact Me</a>
+  </header>
+  <main class="container">
+    <section id="about">
+      <h2>About Me</h2>
+      <p>
+        I'm Md Syful Islam Siyam, a Computer Science and Engineering student passionate about cybersecurity, real-time systems, and web development. Preparing for an MSc in Cybersecurity, I focus on building secure and efficient technology.
+      </p>
+      <p>
+        Skilled in C, C++, Python, HTML, CSS, and JavaScript. I value clean code, scalable design, and ethical hacking. I enjoy solving real-world problems and collaborating on impactful projects.
+      </p>
+    </section>
+    <section id="skills">
+      <h2>Skills</h2>
+      <ul class="skills-list">
+        <li>C, C++</li>
+        <li>Python</li>
+        <li>HTML, CSS, JavaScript</li>
+        <li>Cybersecurity</li>
+        <li>Real-Time Systems</li>
+        <li>Clean Code & Scalable Design</li>
+      </ul>
+      <div class="skill-bar">
+        <div class="skill-label"><span>C & C++</span><span>90%</span></div>
+        <div class="bar-outer"><div class="bar-inner fill90"></div></div>
+        <div class="skill-label"><span>Python</span><span>85%</span></div>
+        <div class="bar-outer"><div class="bar-inner fill85"></div></div>
+        <div class="skill-label"><span>HTML, CSS, JS</span><span>88%</span></div>
+        <div class="bar-outer"><div class="bar-inner fill88"></div></div>
+        <div class="skill-label"><span>Cybersecurity</span><span>80%</span></div>
+        <div class="bar-outer"><div class="bar-inner fill80"></div></div>
       </div>
-    </div>
-    <div>
-      <label for="skill-python">Python</label>
-      <div class="skill-bar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="85" role="progressbar" id="skill-python">
-        <div></div>
+    </section>
+    <section id="projects">
+      <h2>Projects</h2>
+      <div class="projects-grid">
+        <article class="project-card" tabindex="0">
+          <h3>🚍 Real-Time Bus Tracker</h3>
+          <p>Live GPS tracking system with embedded C & microcontrollers for fast, reliable transit updates.</p>
+        </article>
+        <article class="project-card" tabindex="0">
+          <h3>🌐 Portfolio Website</h3>
+          <p>Animated portfolio showcasing skills and projects using modern web technologies.</p>
+        </article>
+        <article class="project-card" tabindex="0">
+          <h3>🔐 Cybersecurity Toolkit</h3>
+          <p>Python-based ethical hacking tools for port scanning and packet inspection.</p>
+        </article>
       </div>
-    </div>
-    <div>
-      <label for="skill-web">HTML, CSS, JavaScript</label>
-      <div class="skill-bar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="88" role="progressbar" id="skill-web">
-        <div></div>
-      </div>
-    </div>
-    <div>
-      <label for="skill-cyber">Cybersecurity</label>
-      <div class="skill-bar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="80" role="progressbar" id="skill-cyber">
-        <div></div>
-      </div>
-    </div>
-  </section>
-
-  <section id="projects" data-aos="fade-up" aria-label="Projects">
-    <h2>Projects</h2>
-    <div class="project-card" tabindex="0" data-title="Real-Time Bus Tracker" data-desc="Live GPS tracking system built with embedded C & microcontrollers. Visit GitHub for code." data-link="https://github.com/siaym/real-time-bus-tracker">
-      <h3>🚍 Real-Time Bus Tracker</h3>
-      <p>Live GPS tracking system built using embedded C & microcontrollers.</p>
-    </div>
-    <div class="project-card" tabindex="0" data-title="Portfolio Website" data-desc="Modern portfolio with Tailwind CSS & animations." data-link="https://siaym.github.io/">
-      <h3>🌐 Portfolio Website</h3>
-      <p>Modern, animated portfolio built with Tailwind CSS & JS frameworks.</p>
-    </div>
-    <div class="project-card" tabindex="0" data-title="Cybersecurity Toolkit" data-desc="Python tools for ethical hacking, port scanning & packet inspection." data-link="https://github.com/siaym/cybersecurity-toolkit">
-      <h3>🔐 Cybersecurity Toolkit</h3>
-      <p>Python tools for ethical hacking, port scanning & packet inspection.</p>
-    </div>
-  </section>
-
-  <section id="volunteering" data-aos="fade-up">
-    <h2>Volunteering</h2>
-    <ul>
-      <li><strong>Bangladesh Red Crescent Society (BDRCS)</strong> - Disaster and Humanitarian Relief</li>
-      <li><strong>Youth Action For Social Development (YASD)</strong> - Environmental Projects</li>
-    </ul>
-  </section>
-
-  <section id="languages" data-aos="fade-up">
-    <h2>Languages</h2>
-    <ul>
-      <li>Bangla - Native or bilingual proficiency</li>
-      <li>English - Professional working proficiency</li>
-      <li>Hindi - Limited working proficiency</li>
-    </ul>
-  </section>
-
-  <section id="future-goals" data-aos="fade-up">
-    <h2>Future Goals</h2>
-    <p>My aim is to become a globally recognized cybersecurity expert and system architect. I plan to deepen my knowledge in advanced cybersecurity, real-time embedded systems, and cloud infrastructure, building scalable and secure systems that impact lives.</p>
-  </section>
-
-  <section id="contact" data-aos="fade-up" aria-label="Contact">
-    <h2>📬 Get in Touch</h2>
-    <form action="https://formspree.io/f/mayvnvyl" method="POST" aria-label="Contact form">
-      <input type="text" name="name" placeholder="Your Name" required aria-required="true" />
-      <input type="email" name="email" placeholder="Your Email" required aria-required="true" />
-      <textarea name="message" rows="4" placeholder="Your Message" required aria-required="true"></textarea>
-      <button type="submit">Send Message</button>
-    </form>
-  </section>
-
-</main>
-
-<!-- Modal -->
-<div id="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" tabindex="-1">
-  <div id="modal-content">
-    <button id="modal-close" aria-label="Close modal">&times;</button>
-    <h3 id="modal-title"></h3>
-    <p id="modal-desc"></p>
-    <a id="modal-link" href="#" target="_blank" rel="noopener" class="underline text-blue-400 hover:text-blue-600">See More</a>
-  </div>
-</div>
-
-<!-- Scripts -->
-<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
-<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
-
-<script>
-  // Intro fadeout
-  setTimeout(() => {
-    document.getElementById('intro').style.display = 'none';
-  }, 3500);
-
-  // Typed.js setup
-  const typed = new Typed('#terminal', {
-    strings: [
-      "> Hello, I'm Md Syful Islam Siyam.",
-      "> CSE Student | Cybersecurity Enthusiast | Web & Real-Time Systems Developer.",
-      "> Skilled in C, C++, Python, Web Technologies, and Ethical Hacking.",
-      "> Passionate about clean code, scalable systems & real-world impact.",
-      "> Open for internships, collaborations, and global opportunities.",
-      "> Let's build something legendary together!"
-    ],
-    typeSpeed: 50,
-    backSpeed: 20,
-    smartBackspace: true,
-    loop: true,
-    showCursor: true,
-    cursorChar: '|',
-  });
-
-  // Animate skill bars when in viewport
-  function animateSkillBars() {
-    const bars = document.querySelectorAll('.skill-bar > div');
-    bars.forEach((bar) => {
-      const width = bar.parentElement.getAttribute('aria-valuenow') + '%';
-      if (bar.style.width === '0px' || bar.style.width === '') {
-        bar.style.width = width;
-      }
+    </section>
+    <section id="volunteering">
+      <h2>Volunteering</h2>
+      <p><strong>Bangladesh Red Crescent Society (BDRCS)</strong> - Disaster and Humanitarian Relief</p>
+      <p><strong>Youth Action For Social Development (YASD)</strong> - Environmental Projects</p>
+    </section>
+    <section id="languages">
+      <h2>Languages</h2>
+      <p>Bangla - Native or bilingual proficiency</p>
+      <p>English - Professional working proficiency</p>
+      <p>Hindi - Limited working proficiency</p>
+    </section>
+    <section id="future-goals">
+      <h2>Future Goals</h2>
+      <p>
+        My aim is to become a globally recognized cybersecurity expert and system architect. I plan to deepen my knowledge in advanced cybersecurity,
+        real-time embedded systems, and cloud infrastructure to build scalable and secure systems that impact lives.
+      </p>
+    </section>
+    <section id="contact">
+      <h2>Contact Me</h2>
+      <form action="https://formspree.io/f/mayvnvyl" method="POST">
+        <input type="text" name="name" placeholder="Your Name" required autocomplete="name" />
+        <input type="email" name="email" placeholder="Your Email" required autocomplete="email" />
+        <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+    </section>
+  </main>
+  <footer>
+    &copy; 2025 Md Syful Islam Siyam | Made with 💙 and clean code
+  </footer>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      var typed = new Typed('#typed', {
+        strings: [
+          'CSE Student',
+          'Cybersecurity Enthusiast',
+          'Web App Developer',
+          'Real-Time Systems Lover',
+          'Ethical Hacker'
+        ],
+        typeSpeed: 60,
+        backSpeed: 30,
+        backDelay: 2000,
+        loop: true
+      });
+      setTimeout(() => document.body.classList.add('loaded'), 100);
     });
-  }
-  window.addEventListener('scroll', () => {
-    const skillsSection = document.getElementById('skills');
-    const rect = skillsSection.getBoundingClientRect();
-    if (rect.top < window.innerHeight) {
-      animateSkillBars();
+    // Particles background
+    const canvas = document.getElementById("particles-bg");
+    const ctx = canvas.getContext("2d");
+    let w, h, particles = [];
+    function resize() {
+      w = canvas.width = window.innerWidth;
+      h = canvas.height = window.innerHeight;
     }
-  });
-
-  // Initialize AOS animations
-  AOS.init({
-    duration: 1000,
-    easing: 'ease-in-out',
-    once: true,
-  });
-
-  // Particles.js background config
-  particlesJS.load('particles-js', 'https://cdn.jsdelivr.net/gh/VincentGarreau/particles.js/particles.json');
-
-  // Project modal popup
-  const projects = document.querySelectorAll('.project-card');
-  const modal = document.getElementById('modal');
-  const modalTitle = document.getElementById('modal-title');
-  const modalDesc = document.getElementById('modal-desc');
-  const modalLink = document.getElementById('modal-link');
-  const modalClose = document.getElementById('modal-close');
-
-  projects.forEach(project => {
-    project.addEventListener('click', () => {
-      modalTitle.textContent = project.dataset.title;
-      modalDesc.textContent = project.dataset.desc;
-      modalLink.href = project.dataset.link;
-      modal.classList.add('active');
-      modal.focus();
-    });
-    project.addEventListener('keypress', e => {
-      if (e.key === 'Enter' || e.key === ' ') {
-        project.click();
+    window.addEventListener("resize", resize);
+    resize();
+    for(let i=0; i<60; i++) {
+      particles.push({
+        x: Math.random()*w,
+        y: Math.random()*h,
+        r: Math.random()*1.5+0.5,
+        dx: (Math.random()-0.5)*0.5,
+        dy: (Math.random()-0.5)*0.5
+      });
+    }
+    function draw() {
+      ctx.clearRect(0, 0, w, h);
+      ctx.fillStyle = "rgba(40,200,255,0.13)";
+      for(let p of particles){
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r, 0, 2*Math.PI);
+        ctx.fill();
+        p.x += p.dx;
+        p.y += p.dy;
+        if(p.x < 0 || p.x > w) p.dx *= -1;
+        if(p.y < 0 || p.y > h) p.dy *= -1;
       }
-    });
-  });
-
-  modalClose.addEventListener('click', () => {
-    modal.classList.remove('active');
-  });
-
-  modal.addEventListener('click', e => {
-    if (e.target === modal) modal.classList.remove('active');
-  });
-</script>
-
-<!-- Particle background -->
-<div id="particles-js" style="position: fixed; inset: 0; z-index: 0;"></div>
-
+      requestAnimationFrame(draw);
+    }
+    draw();
+  </script>
 </body>
 </html>
