@@ -9,6 +9,7 @@
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
   <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
   <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
   <style>
     html {
@@ -21,6 +22,7 @@
       background: radial-gradient(circle at 20% 30%, #3b82f6 0%, #1e3a8a 100%);
       animation: gradientMove 10s ease infinite;
       background-size: 400% 400%;
+      position: relative;
     }
     @keyframes gradientMove {
       0% {
@@ -33,14 +35,23 @@
         background-position: 0% 50%;
       }
     }
+    #particles-js {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      z-index: 0;
+    }
   </style>
 </head>
 
 <body class="bg-gray-100 text-gray-900 font-sans">
+  <!-- Particle Background -->
+  <div id="particles-js"></div>
+
   <!-- Header / Hero -->
-  <header class="hero-animated text-white py-20 text-center relative overflow-hidden">
-    <div class="absolute -top-10 -left-10 w-80 h-80 bg-blue-400 rounded-full opacity-30 blur-3xl animate-pulse"></div>
-    <div class="absolute -bottom-10 -right-10 w-80 h-80 bg-indigo-600 rounded-full opacity-30 blur-3xl animate-pulse"></div>
+  <header class="hero-animated text-white py-24 text-center relative overflow-hidden">
     <img src="syful-profile.jpg" alt="Md Syful Islam Siyam" class="w-32 h-32 mx-auto rounded-full border-4 border-white shadow-xl mb-4 z-10 relative">
     <h1 class="text-5xl font-extrabold glow-text z-10 relative" id="typed"></h1>
     <p class="mt-4 text-lg z-10 relative">Building Secure, Real-Time, Impactful Tech</p>
@@ -54,25 +65,25 @@
   </header>
 
   <!-- About Me -->
-  <section class="max-w-5xl mx-auto px-6 py-16" id="about" data-aos="fade-up">
+  <section class="max-w-5xl mx-auto px-6 py-20" id="about" data-aos="fade-up">
     <h2 class="text-4xl font-bold mb-6 text-blue-800">Who Am I?</h2>
     <p class="leading-relaxed text-lg">I'm <strong>Md Syful Islam Siyam</strong>, a CSE student with a deep passion for real-time systems, ethical hacking, and crafting secure digital infrastructure. I strive to combine technical mastery with real-world impact.</p>
   </section>
 
   <!-- Projects -->
-  <section class="bg-gradient-to-tr from-white to-blue-50 py-16 px-6" id="projects" data-aos="fade-up">
+  <section class="bg-gradient-to-tr from-white to-blue-50 py-20 px-6" id="projects" data-aos="zoom-in-up">
     <div class="max-w-6xl mx-auto">
       <h2 class="text-4xl font-bold text-blue-800 mb-10">💼 My Projects</h2>
       <div class="grid md:grid-cols-3 gap-8">
-        <div class="bg-white p-6 rounded-xl shadow-lg hover:scale-105 transition-transform duration-300">
+        <div class="bg-white p-6 rounded-xl shadow-2xl hover:scale-105 transition-transform duration-500">
           <h3 class="text-2xl font-semibold mb-2">🚍 Real-Time Bus Tracker</h3>
           <p class="text-gray-700">Live GPS tracking system built using embedded C & microcontrollers.</p>
         </div>
-        <div class="bg-white p-6 rounded-xl shadow-lg hover:scale-105 transition-transform duration-300">
+        <div class="bg-white p-6 rounded-xl shadow-2xl hover:scale-105 transition-transform duration-500">
           <h3 class="text-2xl font-semibold mb-2">🌐 Portfolio Website</h3>
           <p class="text-gray-700">Modern, animated portfolio built with Tailwind CSS & JS frameworks.</p>
         </div>
-        <div class="bg-white p-6 rounded-xl shadow-lg hover:scale-105 transition-transform duration-300">
+        <div class="bg-white p-6 rounded-xl shadow-2xl hover:scale-105 transition-transform duration-500">
           <h3 class="text-2xl font-semibold mb-2">🔐 Cybersecurity Toolkit</h3>
           <p class="text-gray-700">Python tools for ethical hacking, port scanning & packet inspection.</p>
         </div>
@@ -81,20 +92,20 @@
   </section>
 
   <!-- Skills -->
-  <section class="max-w-6xl mx-auto px-6 py-16" id="skills" data-aos="fade-up">
+  <section class="max-w-6xl mx-auto px-6 py-20" id="skills" data-aos="fade-right">
     <h2 class="text-4xl font-bold text-blue-800 mb-6">🛠️ Skills</h2>
     <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-6 text-center">
-      <div class="bg-blue-100 p-4 rounded-xl">C, C++</div>
-      <div class="bg-blue-100 p-4 rounded-xl">Python</div>
-      <div class="bg-blue-100 p-4 rounded-xl">HTML, CSS, JavaScript</div>
-      <div class="bg-blue-100 p-4 rounded-xl">Cybersecurity & Networking</div>
-      <div class="bg-blue-100 p-4 rounded-xl">Word, Excel, PowerPoint</div>
-      <div class="bg-blue-100 p-4 rounded-xl">Public Speaking & Communication</div>
+      <div class="bg-gradient-to-tr from-blue-100 to-blue-200 p-4 rounded-xl shadow">C, C++</div>
+      <div class="bg-gradient-to-tr from-blue-100 to-blue-200 p-4 rounded-xl shadow">Python</div>
+      <div class="bg-gradient-to-tr from-blue-100 to-blue-200 p-4 rounded-xl shadow">HTML, CSS, JavaScript</div>
+      <div class="bg-gradient-to-tr from-blue-100 to-blue-200 p-4 rounded-xl shadow">Cybersecurity & Networking</div>
+      <div class="bg-gradient-to-tr from-blue-100 to-blue-200 p-4 rounded-xl shadow">Word, Excel, PowerPoint</div>
+      <div class="bg-gradient-to-tr from-blue-100 to-blue-200 p-4 rounded-xl shadow">Public Speaking & Communication</div>
     </div>
   </section>
 
   <!-- Contact -->
-  <section class="bg-gradient-to-br from-blue-100 to-white py-16 px-6" id="contact" data-aos="fade-up">
+  <section class="bg-gradient-to-br from-blue-100 to-white py-20 px-6" id="contact" data-aos="fade-up">
     <div class="max-w-lg mx-auto text-center">
       <h2 class="text-4xl font-bold text-blue-800 mb-6">📬 Let's Connect</h2>
       <form action="https://formspree.io/f/mayvnvyl" method="POST" class="space-y-4">
@@ -120,6 +131,7 @@
       backSpeed: 30,
       loop: true
     });
+    particlesJS.load('particles-js', 'https://cdn.jsdelivr.net/gh/VincentGarreau/particles.js/particles.json');
   </script>
 </body>
 
