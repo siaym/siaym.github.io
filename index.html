@@ -43,12 +43,31 @@
       left: 0;
       z-index: 0;
     }
+    .dark-mode {
+      background-color: #0f172a;
+      color: #f1f5f9;
+    }
+    .toggle-btn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #1e3a8a;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 9999px;
+      cursor: pointer;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+      z-index: 1000;
+    }
   </style>
 </head>
 
-<body class="bg-gray-100 text-gray-900 font-sans">
+<body class="bg-gray-100 text-gray-900 font-sans transition-colors duration-500">
   <!-- Particle Background -->
   <div id="particles-js"></div>
+
+  <!-- Dark Mode Toggle -->
+  <div class="toggle-btn" onclick="toggleDarkMode()">🌙 Toggle Dark Mode</div>
 
   <!-- Header / Hero -->
   <header class="hero-animated text-white py-24 text-center relative overflow-hidden">
@@ -66,48 +85,58 @@
 
   <!-- About Me -->
   <section class="max-w-5xl mx-auto px-6 py-20" id="about" data-aos="fade-up">
-    <h2 class="text-4xl font-bold mb-6 text-blue-800">Who Am I?</h2>
+    <h2 class="text-4xl font-bold mb-6 text-blue-800 dark:text-blue-300">Who Am I?</h2>
     <p class="leading-relaxed text-lg">I'm <strong>Md Syful Islam Siyam</strong>, a CSE student with a deep passion for real-time systems, ethical hacking, and crafting secure digital infrastructure. I strive to combine technical mastery with real-world impact.</p>
   </section>
 
   <!-- Projects -->
-  <section class="bg-gradient-to-tr from-white to-blue-50 py-20 px-6" id="projects" data-aos="zoom-in-up">
+  <section class="bg-gradient-to-tr from-white to-blue-50 dark:from-gray-800 dark:to-gray-900 py-20 px-6" id="projects" data-aos="zoom-in-up">
     <div class="max-w-6xl mx-auto">
-      <h2 class="text-4xl font-bold text-blue-800 mb-10">💼 My Projects</h2>
+      <h2 class="text-4xl font-bold text-blue-800 dark:text-blue-300 mb-10">💼 My Projects</h2>
       <div class="grid md:grid-cols-3 gap-8">
-        <div class="bg-white p-6 rounded-xl shadow-2xl hover:scale-105 transition-transform duration-500">
+        <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-2xl hover:scale-105 transition-transform duration-500">
           <h3 class="text-2xl font-semibold mb-2">🚍 Real-Time Bus Tracker</h3>
-          <p class="text-gray-700">Live GPS tracking system built using embedded C & microcontrollers.</p>
+          <p class="text-gray-700 dark:text-gray-300">Live GPS tracking system built using embedded C & microcontrollers.</p>
         </div>
-        <div class="bg-white p-6 rounded-xl shadow-2xl hover:scale-105 transition-transform duration-500">
+        <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-2xl hover:scale-105 transition-transform duration-500">
           <h3 class="text-2xl font-semibold mb-2">🌐 Portfolio Website</h3>
-          <p class="text-gray-700">Modern, animated portfolio built with Tailwind CSS & JS frameworks.</p>
+          <p class="text-gray-700 dark:text-gray-300">Modern, animated portfolio built with Tailwind CSS & JS frameworks.</p>
         </div>
-        <div class="bg-white p-6 rounded-xl shadow-2xl hover:scale-105 transition-transform duration-500">
+        <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-2xl hover:scale-105 transition-transform duration-500">
           <h3 class="text-2xl font-semibold mb-2">🔐 Cybersecurity Toolkit</h3>
-          <p class="text-gray-700">Python tools for ethical hacking, port scanning & packet inspection.</p>
+          <p class="text-gray-700 dark:text-gray-300">Python tools for ethical hacking, port scanning & packet inspection.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Skills -->
+  <!-- Skills with Bars -->
   <section class="max-w-6xl mx-auto px-6 py-20" id="skills" data-aos="fade-right">
-    <h2 class="text-4xl font-bold text-blue-800 mb-6">🛠️ Skills</h2>
-    <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-6 text-center">
-      <div class="bg-gradient-to-tr from-blue-100 to-blue-200 p-4 rounded-xl shadow">C, C++</div>
-      <div class="bg-gradient-to-tr from-blue-100 to-blue-200 p-4 rounded-xl shadow">Python</div>
-      <div class="bg-gradient-to-tr from-blue-100 to-blue-200 p-4 rounded-xl shadow">HTML, CSS, JavaScript</div>
-      <div class="bg-gradient-to-tr from-blue-100 to-blue-200 p-4 rounded-xl shadow">Cybersecurity & Networking</div>
-      <div class="bg-gradient-to-tr from-blue-100 to-blue-200 p-4 rounded-xl shadow">Word, Excel, PowerPoint</div>
-      <div class="bg-gradient-to-tr from-blue-100 to-blue-200 p-4 rounded-xl shadow">Public Speaking & Communication</div>
+    <h2 class="text-4xl font-bold text-blue-800 dark:text-blue-300 mb-6">🛠️ Skills</h2>
+    <div class="space-y-6">
+      <div>
+        <p>C, C++</p>
+        <div class="bg-blue-100 dark:bg-gray-700 rounded-full h-4"><div class="bg-blue-600 h-4 rounded-full" style="width: 90%;"></div></div>
+      </div>
+      <div>
+        <p>Python</p>
+        <div class="bg-blue-100 dark:bg-gray-700 rounded-full h-4"><div class="bg-blue-600 h-4 rounded-full" style="width: 85%;"></div></div>
+      </div>
+      <div>
+        <p>HTML, CSS, JS</p>
+        <div class="bg-blue-100 dark:bg-gray-700 rounded-full h-4"><div class="bg-blue-600 h-4 rounded-full" style="width: 88%;"></div></div>
+      </div>
+      <div>
+        <p>Cybersecurity</p>
+        <div class="bg-blue-100 dark:bg-gray-700 rounded-full h-4"><div class="bg-blue-600 h-4 rounded-full" style="width: 80%;"></div></div>
+      </div>
     </div>
   </section>
 
   <!-- Contact -->
-  <section class="bg-gradient-to-br from-blue-100 to-white py-20 px-6" id="contact" data-aos="fade-up">
+  <section class="bg-gradient-to-br from-blue-100 to-white dark:from-gray-800 dark:to-gray-900 py-20 px-6" id="contact" data-aos="fade-up">
     <div class="max-w-lg mx-auto text-center">
-      <h2 class="text-4xl font-bold text-blue-800 mb-6">📬 Let's Connect</h2>
+      <h2 class="text-4xl font-bold text-blue-800 dark:text-blue-300 mb-6">📬 Let's Connect</h2>
       <form action="https://formspree.io/f/mayvnvyl" method="POST" class="space-y-4">
         <input type="text" name="name" placeholder="Your Name" required class="w-full border border-blue-200 px-4 py-2 rounded-lg">
         <input type="email" name="email" placeholder="Your Email" required class="w-full border border-blue-200 px-4 py-2 rounded-lg">
@@ -132,6 +161,9 @@
       loop: true
     });
     particlesJS.load('particles-js', 'https://cdn.jsdelivr.net/gh/VincentGarreau/particles.js/particles.json');
+    function toggleDarkMode() {
+      document.body.classList.toggle("dark-mode");
+    }
   </script>
 </body>
 
