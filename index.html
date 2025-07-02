@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Md Syful Islam Siyam | Developer's Universe</title>
   <style>
-    /* Reset & basics */
     body, html {
       margin: 0; padding: 0; overflow: hidden;
       background: radial-gradient(ellipse at center, #0b0c1a 0%, #000010 80%);
@@ -26,7 +24,6 @@
       top:0; left:0;
       width: 100%; height: 100%;
     }
-    /* Info Panel */
     #infoPanel {
       position: absolute;
       top: 20px; right: 20px;
@@ -39,6 +36,7 @@
       pointer-events: none;
       transition: opacity 0.3s ease;
       color: #22ddff;
+      z-index: 10;
     }
     #infoPanel.active {
       opacity: 1;
@@ -70,7 +68,6 @@
     #infoPanel button:hover {
       background: #00ffffaa;
     }
-    /* Glowing Text for title */
     #title {
       position: absolute;
       left: 20px;
@@ -80,6 +77,7 @@
       color: #00ffffaa;
       text-shadow: 0 0 8px #00ffffcc, 0 0 20px #00ffff88;
       user-select: none;
+      z-index: 10;
     }
   </style>
 </head>
@@ -93,35 +91,30 @@
   <div id="title">Md Syful Islam Siyam's Developer Universe 🌌</div>
 
   <script src="https://cdn.jsdelivr.net/npm/three@0.153.0/build/three.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/three@0.153.0/examples/js/controls/OrbitControls.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.153.0/examples/js/controls/OrbitControls.min.js"></script>
   <script>
-    // Scene Setup
     const container = document.getElementById('container');
     const scene = new THREE.Scene();
 
-    // Camera
     const camera = new THREE.PerspectiveCamera(60, window.innerWidth/window.innerHeight, 0.1, 1000);
     camera.position.set(0, 10, 40);
 
-    // Renderer
     const renderer = new THREE.WebGLRenderer({antialias: true});
     renderer.setSize(window.innerWidth, window.innerHeight);
     container.appendChild(renderer.domElement);
 
-    // Orbit Controls
     const controls = new THREE.OrbitControls(camera, renderer.domElement);
     controls.enableDamping = true;
     controls.dampingFactor = 0.05;
     controls.minDistance = 10;
     controls.maxDistance = 80;
 
-    // Lighting
     const ambientLight = new THREE.AmbientLight(0x404050, 1.3);
     scene.add(ambientLight);
     const pointLight = new THREE.PointLight(0x00ffff, 2, 150);
     scene.add(pointLight);
 
-    // Starfield background
+    // Starfield
     function createStarfield() {
       const starsGeometry = new THREE.BufferGeometry();
       const starsCount = 10000;
@@ -149,16 +142,14 @@
     }
     createStarfield();
 
-    // Create glowing planet function
+    // Planet creation
     function createPlanet(name, color, size, position, description) {
-      // Planet sphere with glow
       const sphereGeom = new THREE.SphereGeometry(size, 32, 32);
       const sphereMat = new THREE.MeshPhongMaterial({color: color, shininess: 100, emissive: color, emissiveIntensity: 0.4});
       const sphere = new THREE.Mesh(sphereGeom, sphereMat);
 
-      // Add glow with sprite
       const spriteMaterial = new THREE.SpriteMaterial({
-        map: new THREE.TextureLoader().load('https://i.imgur.com/O5pLrri.png'), // glowing halo texture
+        map: new THREE.TextureLoader().load('https://i.imgur.com/O5pLrri.png'),
         color: color,
         blending: THREE.AdditiveBlending,
         transparent: true,
@@ -175,61 +166,21 @@
       planets.push(sphere);
     }
 
-    // Planets data (skills/projects)
     const planetsData = [
-      {
-        name: "C & C++",
-        color: 0x0099ff,
-        size: 2.2,
-        position: new THREE.Vector3(-15, 4, 10),
-        description: "Strong foundation in C & C++, focused on clean and efficient code."
-      },
-      {
-        name: "Python",
-        color: 0x00ff99,
-        size: 2,
-        position: new THREE.Vector3(-10, -3, 15),
-        description: "Experienced in Python for automation, data processing, and scripting."
-      },
-      {
-        name: "Web Development",
-        color: 0xff9900,
-        size: 2,
-        position: new THREE.Vector3(10, 5, -5),
-        description: "Skilled in HTML, CSS, JavaScript, and modern frameworks for building web apps."
-      },
-      {
-        name: "Cybersecurity",
-        color: 0xff0055,
-        size: 2.5,
-        position: new THREE.Vector3(18, 0, 7),
-        description: "Passionate about ethical hacking, penetration testing, and secure systems design."
-      },
-      {
-        name: "Real-Time Systems",
-        color: 0x9966ff,
-        size: 2,
-        position: new THREE.Vector3(5, -8, 10),
-        description: "Building embedded & real-time applications focused on performance and reliability."
-      },
-      {
-        name: "Projects",
-        color: 0xffff33,
-        size: 2.7,
-        position: new THREE.Vector3(0, 8, -12),
-        description: "Real-time bus tracker, cybersecurity toolkits, portfolio websites, and more."
-      }
+      {name: "C & C++", color: 0x0099ff, size: 2.2, position: new THREE.Vector3(-15, 4, 10), description: "Strong foundation in C & C++, focused on clean and efficient code."},
+      {name: "Python", color: 0x00ff99, size: 2, position: new THREE.Vector3(-10, -3, 15), description: "Experienced in Python for automation, data processing, and scripting."},
+      {name: "Web Development", color: 0xff9900, size: 2, position: new THREE.Vector3(10, 5, -5), description: "Skilled in HTML, CSS, JavaScript, and modern frameworks for building web apps."},
+      {name: "Cybersecurity", color: 0xff0055, size: 2.5, position: new THREE.Vector3(18, 0, 7), description: "Passionate about ethical hacking, penetration testing, and secure systems design."},
+      {name: "Real-Time Systems", color: 0x9966ff, size: 2, position: new THREE.Vector3(5, -8, 10), description: "Building embedded & real-time applications focused on performance and reliability."},
+      {name: "Projects", color: 0xffff33, size: 2.7, position: new THREE.Vector3(0, 8, -12), description: "Real-time bus tracker, cybersecurity toolkits, portfolio websites, and more."}
     ];
 
-    // Create and store planets
     const planets = [];
     planetsData.forEach(p => createPlanet(p.name, p.color, p.size, p.position, p.description));
 
-    // Raycaster for clicks
     const raycaster = new THREE.Raycaster();
     const mouse = new THREE.Vector2();
 
-    // Info panel elements
     const infoPanel = document.getElementById('infoPanel');
     const infoTitle = document.getElementById('infoTitle');
     const infoDesc = document.getElementById('infoDesc');
@@ -237,7 +188,6 @@
     function onMouseClick(event) {
       event.preventDefault();
 
-      // Calculate mouse position in normalized device coordinates (-1 to +1)
       mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
       mouse.y = - (event.clientY / window.innerHeight) * 2 + 1;
 
@@ -264,7 +214,6 @@
     window.addEventListener('click', onMouseClick);
     window.closeInfo = closeInfo;
 
-    // Animate planets rotation
     function animatePlanets(time) {
       planets.forEach((planet, i) => {
         planet.rotation.y += 0.003 + i * 0.0003;
@@ -273,7 +222,6 @@
       });
     }
 
-    // Animate loop
     function animate(time=0) {
       requestAnimationFrame(animate);
       animatePlanets(time);
@@ -282,13 +230,11 @@
     }
     animate();
 
-    // Handle resize
     window.addEventListener('resize', () => {
       camera.aspect = window.innerWidth/window.innerHeight;
       camera.updateProjectionMatrix();
       renderer.setSize(window.innerWidth, window.innerHeight);
     });
-
   </script>
 </body>
 </html>
