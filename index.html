@@ -1,381 +1,294 @@
 
 <!DOCTYPE html>
-<html lang="en" >
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Md Syful Islam Siyam | Legendary Portfolio</title>
-
-  <!-- Tailwind CDN for quick styling -->
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
-
-  <!-- AOS for scroll animations -->
-  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
-
-  <!-- Typed.js for text typing effect -->
-  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
-
-  <!-- Three.js core and OrbitControls -->
-  <script src="https://cdn.jsdelivr.net/npm/three@0.153.0/build/three.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/three@0.153.0/examples/js/controls/OrbitControls.min.js"></script>
-
-  <!-- Particles.js -->
-  <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
-
+  <title>Md Syful Islam Siyam | Developer's Universe</title>
   <style>
-    /* Base resets */
+    /* Reset & basics */
     body, html {
-      margin: 0; padding: 0; height: 100%;
+      margin: 0; padding: 0; overflow: hidden;
+      background: radial-gradient(ellipse at center, #0b0c1a 0%, #000010 80%);
+      color: #eee;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: #0a0f25;
-      color: #00ffff;
-      overflow-x: hidden;
-      scroll-behavior: smooth;
+      height: 100vh;
+      user-select: none;
     }
     #container {
       width: 100vw;
       height: 100vh;
       position: relative;
-      overflow: hidden;
-      z-index: 0;
-    }
-    /* Overlay text on hero */
-    #overlay-text {
-      position: absolute;
-      top: 12%;
-      left: 50%;
-      transform: translateX(-50%);
-      text-align: center;
-      color: #00ffff;
-      text-shadow: 0 0 25px #00ffffbb;
-      user-select: none;
-      z-index: 10;
-    }
-    #overlay-text h1 {
-      font-size: 3.8rem;
-      margin-bottom: 0.25rem;
-      font-weight: 900;
-      letter-spacing: 0.15em;
-    }
-    #overlay-text p {
-      font-size: 1.35rem;
-      font-weight: 600;
-      opacity: 0.85;
     }
     canvas {
       display: block;
-    }
-    /* Neon cards container */
-    #cards-container {
       position: absolute;
-      top: 50%;
-      left: 50%;
-      width: 640px;
-      height: 640px;
-      transform-style: preserve-3d;
-      transform-origin: center center;
-      margin-left: -320px;
-      margin-top: -320px;
+      top:0; left:0;
+      width: 100%; height: 100%;
+    }
+    /* Info Panel */
+    #infoPanel {
+      position: absolute;
+      top: 20px; right: 20px;
+      width: 320px;
+      background: rgba(10,10,30,0.9);
+      border-radius: 15px;
+      padding: 20px;
+      box-shadow: 0 0 15px #22ddffaa;
+      opacity: 0;
       pointer-events: none;
-      z-index: 5;
-      user-select: none;
+      transition: opacity 0.3s ease;
+      color: #22ddff;
     }
-    /* Neon card style */
-    .card {
-      position: absolute;
-      background: rgba(0, 255, 255, 0.12);
-      border: 1.8px solid #00ffff;
-      border-radius: 14px;
-      padding: 1.25rem 1.75rem;
-      color: #00ffff;
-      font-weight: 700;
-      font-size: 1.1rem;
-      width: 180px;
-      text-align: center;
-      box-shadow: 0 0 16px #00ffffaa;
-      cursor: default;
+    #infoPanel.active {
+      opacity: 1;
       pointer-events: auto;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
-    .card:hover, .card:focus {
-      transform: scale(1.15);
-      box-shadow: 0 0 32px #00ffffdd;
-      outline: none;
-    }
-    /* Section styling */
-    section {
-      max-width: 900px;
-      margin: 4rem auto 6rem auto;
-      padding: 0 1.25rem;
-      background: rgba(0, 255, 255, 0.04);
-      border-radius: 16px;
-      box-shadow: 0 0 25px #00ffff33;
-      color: #cceeff;
-    }
-    section h2 {
-      font-size: 2.8rem;
-      font-weight: 900;
-      margin-bottom: 1rem;
-      border-bottom: 3px solid #00ffff;
-      padding-bottom: 0.4rem;
-      color: #00ffff;
-    }
-    section p, section ul li {
-      font-size: 1.2rem;
-      line-height: 1.6;
-      margin-bottom: 0.9rem;
-    }
-    section ul {
-      list-style: disc inside;
-      padding-left: 0;
-    }
-    /* Footer */
-    footer {
-      text-align: center;
-      padding: 2rem 1rem;
-      color: #00ffffaa;
-      font-weight: 500;
-      font-size: 1rem;
-      user-select: none;
-    }
-    /* Dark Mode Toggle Button */
-    .toggle-btn {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background-color: #001f3f;
-      color: #00ffff;
-      padding: 12px 24px;
-      border-radius: 9999px;
-      cursor: pointer;
-      box-shadow: 0 0 15px #00ffffbb;
+    #infoPanel h2 {
+      margin-top: 0;
       font-weight: 700;
-      user-select: none;
-      z-index: 1000;
-      transition: background-color 0.3s ease;
+      color: #00ffff;
+      text-shadow: 0 0 6px #00ffffaa;
     }
-    .toggle-btn:hover {
-      background-color: #004080;
+    #infoPanel p {
+      margin: 10px 0;
+      line-height: 1.4;
+      font-size: 14px;
+      color: #a0f0ffcc;
+    }
+    #infoPanel button {
+      margin-top: 15px;
+      background: #00ffff33;
+      border: none;
+      color: #00ffffdd;
+      font-weight: 700;
+      padding: 8px 14px;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    #infoPanel button:hover {
+      background: #00ffffaa;
+    }
+    /* Glowing Text for title */
+    #title {
+      position: absolute;
+      left: 20px;
+      bottom: 20px;
+      font-size: 24px;
+      font-weight: 900;
+      color: #00ffffaa;
+      text-shadow: 0 0 8px #00ffffcc, 0 0 20px #00ffff88;
+      user-select: none;
     }
   </style>
 </head>
 <body>
-
-  <!-- 3D Canvas container -->
   <div id="container"></div>
-
-  <!-- Overlay text -->
-  <div id="overlay-text" role="banner" aria-label="Portfolio Introduction">
-    <h1>Md Syful Islam Siyam</h1>
-    <p>CSE Student | Cybersecurity Enthusiast | Web & Real-Time Systems Developer</p>
+  <div id="infoPanel">
+    <h2 id="infoTitle"></h2>
+    <p id="infoDesc"></p>
+    <button onclick="closeInfo()">Close</button>
   </div>
+  <div id="title">Md Syful Islam Siyam's Developer Universe 🌌</div>
 
-  <!-- Orbiting cards container -->
-  <div id="cards-container" aria-label="Skills and Projects" role="list" tabindex="-1">
-    <div class="card" role="listitem" tabindex="0" aria-label="Skill: C and C++">C, C++</div>
-    <div class="card" role="listitem" tabindex="0" aria-label="Skill: Python">Python</div>
-    <div class="card" role="listitem" tabindex="0" aria-label="Skill: HTML, CSS, JavaScript">HTML, CSS, JavaScript</div>
-    <div class="card" role="listitem" tabindex="0" aria-label="Skill: Cybersecurity">Cybersecurity</div>
-    <div class="card" role="listitem" tabindex="0" aria-label="Project: Real-Time Bus Tracker">Real-Time Bus Tracker</div>
-    <div class="card" role="listitem" tabindex="0" aria-label="Project: Portfolio Website">Portfolio Website</div>
-    <div class="card" role="listitem" tabindex="0" aria-label="Project: Cybersecurity Toolkit">Cybersecurity Toolkit</div>
-  </div>
-
-  <!-- Content Sections -->
-  <main>
-    <section id="about" data-aos="fade-up">
-      <h2>About Me</h2>
-      <p>I'm <strong>Md Syful Islam Siyam</strong>, a Computer Science and Engineering student passionate about cybersecurity, real-time systems, and web application development. I strive to build secure, efficient, and impactful technology solutions.</p>
-      <p>I’m proficient in C, C++, Python, HTML, CSS, and JavaScript, and passionate about clean code, system design, and ethical hacking. I’m always learning and open to collaborations and global opportunities.</p>
-    </section>
-
-    <section id="education" data-aos="fade-up" data-aos-delay="100">
-      <h2>Education</h2>
-      <ul>
-        <li><strong>Daffodil International University (DIU)</strong><br />Bachelor's in Computer Science and Engineering<br />Expected Apr 2025</li>
-        <li><strong>BIRSHRESTHO Noor Mohammad Public School and College</strong><br />HSC, Science (Jan 2021 - Jun 2023)<br />Grade: 5.00</li>
-      </ul>
-    </section>
-
-    <section id="skills" data-aos="fade-up" data-aos-delay="200">
-      <h2>Skills</h2>
-      <ul>
-        <li><strong>Programming Languages:</strong> C, C++, Python, HTML, CSS, JavaScript</li>
-        <li><strong>Tools & Technologies:</strong> Microsoft Word, Excel, PowerPoint</li>
-        <li><strong>Soft Skills:</strong> Public Communications, Social Media Marketing, English as a Second Language (ESL)</li>
-        <li><strong>Industry Knowledge:</strong> Cybersecurity, Clean Code, Scalable System Design</li>
-      </ul>
-    </section>
-
-    <section id="volunteering" data-aos="fade-up" data-aos-delay="300">
-      <h2>Volunteering</h2>
-      <ul>
-        <li><strong>Bangladesh Red Crescent Society (BDRCS)</strong> - Disaster and Humanitarian Relief</li>
-        <li><strong>Youth Action For Social Development (YASD)</strong> - Environmental Projects</li>
-      </ul>
-    </section>
-
-    <section id="languages" data-aos="fade-up" data-aos-delay="400">
-      <h2>Languages</h2>
-      <ul>
-        <li>Bangla - Native or bilingual proficiency</li>
-        <li>English - Professional working proficiency</li>
-        <li>Hindi - Limited working proficiency</li>
-      </ul>
-    </section>
-
-    <section id="future-goals" data-aos="fade-up" data-aos-delay="500">
-      <h2>Future Goals</h2>
-      <p>I aspire to become a globally recognized cybersecurity expert and system architect. I plan to deepen my knowledge in advanced cybersecurity, real-time embedded systems, and cloud infrastructure, building scalable and secure systems that impact lives.</p>
-    </section>
-
-    <section id="contact" data-aos="fade-up" data-aos-delay="600">
-      <h2>Contact</h2>
-      <p>Email: <a href="mailto:officehub.siyam@gmail.com" class="text-cyan-400 underline">officehub.siyam@gmail.com</a></p>
-      <p>LinkedIn: <a href="https://www.linkedin.com/in/siyam-itprofessional" target="_blank" rel="noopener" class="text-cyan-400 underline">siyam-itprofessional</a></p>
-      <p>Twitter: <a href="https://twitter.com/siyamx360" target="_blank" rel="noopener" class="text-cyan-400 underline">@siyamx360</a></p>
-    </section>
-  </main>
-
-  <footer>
-    &copy; 2025 Md Syful Islam Siyam. Made with ❤️ and legendary code.
-  </footer>
-
-  <!-- Dark Mode Toggle Button -->
-  <div class="toggle-btn" role="button" aria-pressed="false" tabindex="0" id="dark-toggle" aria-label="Toggle dark mode">🌙 Dark Mode</div>
-
-  <!-- Scripts -->
-  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
-
+  <script src="https://cdn.jsdelivr.net/npm/three@0.153.0/build/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.153.0/examples/js/controls/OrbitControls.js"></script>
   <script>
-    // Init AOS
-    AOS.init({
-      once: true,
-      duration: 900,
-      easing: 'ease-in-out',
-    });
-
-    // Typed.js animation for hero text
-    new Typed("#overlay-text h1", {
-      strings: ["Md Syful Islam Siyam", "CSE Student", "Cybersecurity Enthusiast", "Web & Real-Time Systems Developer"],
-      typeSpeed: 60,
-      backSpeed: 40,
-      loop: true,
-      showCursor: false
-    });
-
-    // Three.js 3D Sphere setup
+    // Scene Setup
     const container = document.getElementById('container');
-    const cardsContainer = document.getElementById('cards-container');
-    const cards = Array.from(cardsContainer.children);
-
     const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(45, window.innerWidth/window.innerHeight, 0.1, 1000);
-    camera.position.set(0, 0, 6);
 
-    const renderer = new THREE.WebGLRenderer({antialias: true, alpha: false});
+    // Camera
+    const camera = new THREE.PerspectiveCamera(60, window.innerWidth/window.innerHeight, 0.1, 1000);
+    camera.position.set(0, 10, 40);
+
+    // Renderer
+    const renderer = new THREE.WebGLRenderer({antialias: true});
     renderer.setSize(window.innerWidth, window.innerHeight);
-    renderer.setClearColor(0x0a0f25);
     container.appendChild(renderer.domElement);
 
+    // Orbit Controls
     const controls = new THREE.OrbitControls(camera, renderer.domElement);
     controls.enableDamping = true;
-    controls.dampingFactor = 0.08;
-    controls.minDistance = 3;
-    controls.maxDistance = 10;
-    controls.autoRotate = true;
-    controls.autoRotateSpeed = 0.4;
+    controls.dampingFactor = 0.05;
+    controls.minDistance = 10;
+    controls.maxDistance = 80;
 
-    const ambientLight = new THREE.AmbientLight(0x00ffff, 0.5);
+    // Lighting
+    const ambientLight = new THREE.AmbientLight(0x404050, 1.3);
     scene.add(ambientLight);
-
-    const pointLight = new THREE.PointLight(0x00ffff, 1.2, 100);
-    pointLight.position.set(5,5,5);
+    const pointLight = new THREE.PointLight(0x00ffff, 2, 150);
     scene.add(pointLight);
 
-    const textureLoader = new THREE.TextureLoader();
-    const profileTexture = textureLoader.load('syful-profile.jpg');
+    // Starfield background
+    function createStarfield() {
+      const starsGeometry = new THREE.BufferGeometry();
+      const starsCount = 10000;
+      const positions = [];
 
-    const sphereGeometry = new THREE.SphereGeometry(1.5, 64, 64);
-    const sphereMaterial = new THREE.MeshStandardMaterial({
-      map: profileTexture,
-      metalness: 0.7,
-      roughness: 0.2,
-      emissive: new THREE.Color(0x00ffff),
-      emissiveIntensity: 0.3,
-      clearcoat: 1,
-      clearcoatRoughness: 0.1,
-    });
-    const sphere = new THREE.Mesh(sphereGeometry, sphereMaterial);
-    scene.add(sphere);
+      for (let i = 0; i < starsCount; i++) {
+        const x = (Math.random() - 0.5) * 800;
+        const y = (Math.random() - 0.5) * 800;
+        const z = (Math.random() - 0.5) * 800;
+        positions.push(x, y, z);
+      }
 
-    const wireframe = new THREE.LineSegments(
-      new THREE.WireframeGeometry(sphereGeometry),
-      new THREE.LineBasicMaterial({ color: 0x00ffff, opacity: 0.3, transparent: true })
-    );
-    scene.add(wireframe);
+      starsGeometry.setAttribute('position', new THREE.Float32BufferAttribute(positions, 3));
 
-    function createGrid() {
-      const size = 20;
-      const divisions = 40;
-      const gridHelper = new THREE.GridHelper(size, divisions, 0x00ffff, 0x003333);
-      gridHelper.material.opacity = 0.2;
-      gridHelper.material.transparent = true;
-      return gridHelper;
+      const starsMaterial = new THREE.PointsMaterial({
+        color: 0x00ffff,
+        size: 0.7,
+        sizeAttenuation: true,
+        transparent: true,
+        opacity: 0.6
+      });
+
+      const stars = new THREE.Points(starsGeometry, starsMaterial);
+      scene.add(stars);
     }
-    const grid = createGrid();
-    grid.rotation.x = Math.PI / 2;
-    grid.position.y = -2.5;
-    scene.add(grid);
+    createStarfield();
 
-    // Animate cards orbiting
-    const radius = 3.5;
-    const cardCount = cards.length;
-    let angle = 0;
+    // Create glowing planet function
+    function createPlanet(name, color, size, position, description) {
+      // Planet sphere with glow
+      const sphereGeom = new THREE.SphereGeometry(size, 32, 32);
+      const sphereMat = new THREE.MeshPhongMaterial({color: color, shininess: 100, emissive: color, emissiveIntensity: 0.4});
+      const sphere = new THREE.Mesh(sphereGeom, sphereMat);
 
-    function updateCards() {
-      angle += 0.005;
-      cards.forEach((card, i) => {
-        const theta = (i / cardCount) * (Math.PI * 2) + angle;
-        const x = radius * Math.cos(theta);
-        const z = radius * Math.sin(theta);
-        const y = Math.sin(theta * 3) * 0.5;
-        card.style.transform = `translateX(${x}px) translateZ(${z}px) translateY(${y}px)`;
+      // Add glow with sprite
+      const spriteMaterial = new THREE.SpriteMaterial({
+        map: new THREE.TextureLoader().load('https://i.imgur.com/O5pLrri.png'), // glowing halo texture
+        color: color,
+        blending: THREE.AdditiveBlending,
+        transparent: true,
+        opacity: 0.6
+      });
+      const sprite = new THREE.Sprite(spriteMaterial);
+      sprite.scale.set(size * 3, size * 3, 1);
+      sphere.add(sprite);
+
+      sphere.position.copy(position);
+      sphere.userData = {name, description};
+
+      scene.add(sphere);
+      planets.push(sphere);
+    }
+
+    // Planets data (skills/projects)
+    const planetsData = [
+      {
+        name: "C & C++",
+        color: 0x0099ff,
+        size: 2.2,
+        position: new THREE.Vector3(-15, 4, 10),
+        description: "Strong foundation in C & C++, focused on clean and efficient code."
+      },
+      {
+        name: "Python",
+        color: 0x00ff99,
+        size: 2,
+        position: new THREE.Vector3(-10, -3, 15),
+        description: "Experienced in Python for automation, data processing, and scripting."
+      },
+      {
+        name: "Web Development",
+        color: 0xff9900,
+        size: 2,
+        position: new THREE.Vector3(10, 5, -5),
+        description: "Skilled in HTML, CSS, JavaScript, and modern frameworks for building web apps."
+      },
+      {
+        name: "Cybersecurity",
+        color: 0xff0055,
+        size: 2.5,
+        position: new THREE.Vector3(18, 0, 7),
+        description: "Passionate about ethical hacking, penetration testing, and secure systems design."
+      },
+      {
+        name: "Real-Time Systems",
+        color: 0x9966ff,
+        size: 2,
+        position: new THREE.Vector3(5, -8, 10),
+        description: "Building embedded & real-time applications focused on performance and reliability."
+      },
+      {
+        name: "Projects",
+        color: 0xffff33,
+        size: 2.7,
+        position: new THREE.Vector3(0, 8, -12),
+        description: "Real-time bus tracker, cybersecurity toolkits, portfolio websites, and more."
+      }
+    ];
+
+    // Create and store planets
+    const planets = [];
+    planetsData.forEach(p => createPlanet(p.name, p.color, p.size, p.position, p.description));
+
+    // Raycaster for clicks
+    const raycaster = new THREE.Raycaster();
+    const mouse = new THREE.Vector2();
+
+    // Info panel elements
+    const infoPanel = document.getElementById('infoPanel');
+    const infoTitle = document.getElementById('infoTitle');
+    const infoDesc = document.getElementById('infoDesc');
+
+    function onMouseClick(event) {
+      event.preventDefault();
+
+      // Calculate mouse position in normalized device coordinates (-1 to +1)
+      mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
+      mouse.y = - (event.clientY / window.innerHeight) * 2 + 1;
+
+      raycaster.setFromCamera(mouse, camera);
+
+      const intersects = raycaster.intersectObjects(planets);
+
+      if (intersects.length > 0) {
+        const planet = intersects[0].object;
+        showInfo(planet.userData.name, planet.userData.description);
+      }
+    }
+
+    function showInfo(title, description) {
+      infoTitle.textContent = title;
+      infoDesc.textContent = description;
+      infoPanel.classList.add('active');
+    }
+
+    function closeInfo() {
+      infoPanel.classList.remove('active');
+    }
+
+    window.addEventListener('click', onMouseClick);
+    window.closeInfo = closeInfo;
+
+    // Animate planets rotation
+    function animatePlanets(time) {
+      planets.forEach((planet, i) => {
+        planet.rotation.y += 0.003 + i * 0.0003;
+        planet.position.x += Math.sin(time * 0.001 + i) * 0.002;
+        planet.position.z += Math.cos(time * 0.001 + i) * 0.002;
       });
     }
 
     // Animate loop
-    function animate() {
+    function animate(time=0) {
       requestAnimationFrame(animate);
+      animatePlanets(time);
       controls.update();
-      sphere.position.y = Math.sin(Date.now() * 0.0015) * 0.15;
-      wireframe.position.y = sphere.position.y;
-      updateCards();
       renderer.render(scene, camera);
     }
     animate();
 
+    // Handle resize
     window.addEventListener('resize', () => {
       camera.aspect = window.innerWidth/window.innerHeight;
       camera.updateProjectionMatrix();
       renderer.setSize(window.innerWidth, window.innerHeight);
     });
 
-    // Dark mode toggle
-    const toggleBtn = document.getElementById('dark-toggle');
-    toggleBtn.addEventListener('click', () => {
-      if(document.body.style.backgroundColor === 'rgb(10, 15, 37)') {
-        document.body.style.backgroundColor = '#f4f4f8';
-        document.body.style.color = '#333';
-        toggleBtn.textContent = '🌙 Dark Mode';
-      } else {
-        document.body.style.backgroundColor = '#0a0f25';
-        document.body.style.color = '#00ffff';
-        toggleBtn.textContent = '☀️ Light Mode';
-      }
-    });
   </script>
-
-  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
 </body>
 </html>
