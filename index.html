@@ -1,80 +1,111 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Md Syful Islam Siyam - Portfolio</title>
-    <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Md Syful Islam Siyam - Portfolio</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
 </head>
-<body>
-    <header>
-        <nav>
-            <h1>Md Syful Islam Siyam</h1>
-            <ul>
-                <li><a href="https://www.linkedin.com/in/siyam-itprofessional" target="_blank" rel="noopener">LinkedIn</a></li>
-                <li><a href="https://twitter.com/siyamx360" target="_blank" rel="noopener">X (Twitter)</a></li>
-                <li><a href="mailto:officehub.siyam@gmail.com">Email</a></li>
-            </ul>
-        </nav>
-        <div class="hero">
-            <img src="syful-profile.jpg" alt="Md Syful Islam Siyam" class="profile-pic" />
-            <p><strong>CSE Student | Web App Developer | Aspiring Cybersecurity Professional</strong></p>
-            <p>Building Real-Time & Secure Systems | Open to Global Opportunities</p>
-            <p>Dhaka, Bangladesh</p>
-        </div>
-    </header>
-    <main>
-        <section id="about">
-            <h2>About Me</h2>
-            <p>I'm Md Syful Islam Siyam, a Computer Science and Engineering (CSE) student with a deep interest in cybersecurity, real-time systems, and web application development. Currently preparing for an MSc in Cybersecurity, I'm committed to building secure, efficient, and meaningful technology.</p>
-            <p>I enjoy working with C, C++, Python, HTML, CSS, and JavaScript, and I'm passionate about clean code, system design, and ethical hacking. Whether it's building a web app or exploring low-level system programming, I love solving real-world problems through tech.</p>
-            <p>I'm continuously learning and open to collaborations, internships, and global opportunities in cybersecurity, software engineering, or research.</p>
-            <p><strong>Interests:</strong> Cybersecurity and Ethical Hacking, Web & Real-Time Software Development, Clean Code and Scalable System Design, Tech with real-world impact</p>
-        </section>
-        <section id="education">
-            <h2>Education</h2>
-            <ul>
-                <li><strong>Daffodil International University (DIU)</strong><br/>Bachelor's degree, Computer Science and Engineering<br/>Expected Apr 2025</li>
-                <li><strong>BIRSHRESTHO Noor Mohammad Public School and College</strong><br/>HSC, Science<br/>Jan 2021 - Jun 2023, Grade: 5.00<br/>Activities: Debate, Quiz, Tournaments, Science Fest</li>
-            </ul>
-        </section>
-        <section id="skills">
-            <h2>Skills</h2>
-            <ul>
-                <li><strong>Programming Languages:</strong> C, C++, Python, HTML, CSS, JavaScript</li>
-                <li><strong>Tools & Technologies:</strong> Microsoft Word, Excel, PowerPoint</li>
-                <li><strong>Soft Skills:</strong> Public Communications, Social Media Marketing, English as a Second Language (ESL)</li>
-                <li><strong>Industry Knowledge:</strong> Cybersecurity, Clean Code, Scalable System Design</li>
-            </ul>
-        </section>
-        <section id="volunteering">
-            <h2>Volunteering</h2>
-            <ul>
-                <li><strong>Bangladesh Red Crescent Society (BDRCS)</strong> - Disaster and Humanitarian Relief</li>
-                <li><strong>Youth Action For Social Development (YASD)</strong> - Environmental Projects</li>
-            </ul>
-        </section>
-        <section id="languages">
-            <h2>Languages</h2>
-            <ul>
-                <li>Bangla - Native or bilingual proficiency</li>
-                <li>English - Professional working proficiency</li>
-                <li>Hindi - Limited working proficiency</li>
-            </ul>
-        </section>
-        <section id="future-goals">
-            <h2>Future Goals</h2>
-            <p>My aim is to become a globally recognized cybersecurity expert and system architect. I plan to deepen my knowledge in advanced cybersecurity, real-time embedded systems, and cloud infrastructure, building scalable and secure systems that impact lives.</p>
-        </section>
-        <section id="contact">
-            <h2>Contact</h2>
-            <p>Email: <a href="mailto:officehub.siyam@gmail.com">officehub.siyam@gmail.com</a></p>
-            <p>LinkedIn: <a href="https://www.linkedin.com/in/siyam-itprofessional" target="_blank" rel="noopener">siyam-itprofessional</a></p>
-            <p>Twitter: <a href="https://twitter.com/siyamx360" target="_blank" rel="noopener">@siyamx360</a></p>
-        </section>
-    </main>
-    <footer>
-        <p>&copy; 2025 Md Syful Islam Siyam. All rights reserved.</p>
-    </footer>
+
+<body class="bg-gray-100 text-gray-800 font-sans">
+  <!-- Header -->
+  <header class="bg-blue-900 text-white py-8">
+    <div class="text-center">
+      <h1 class="text-4xl font-bold mb-2">Md Syful Islam Siyam</h1>
+      <div class="flex justify-center gap-4 mt-2">
+        <a href="https://www.linkedin.com/in/siyam-itprofessional" target="_blank" class="hover:text-blue-400">LinkedIn</a>
+        <a href="https://twitter.com/siyamx360" target="_blank" class="hover:text-blue-400">Twitter</a>
+        <a href="mailto:officehub.siyam@gmail.com" class="hover:text-blue-400">Email</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="text-center mt-8">
+    <img src="syful-profile.jpg" alt="Md Syful Islam Siyam" class="w-40 h-40 mx-auto rounded-full border-4 border-cyan-400 shadow-md">
+    <p class="mt-4 text-lg font-semibold">I'm a <span id="typed" class="text-blue-600"></span></p>
+    <p class="text-sm text-gray-600">Dhaka, Bangladesh</p>
+  </section>
+
+  <!-- Main -->
+  <main class="max-w-4xl mx-auto px-4 mt-8 space-y-10">
+    <!-- About Me -->
+    <section class="bg-white rounded-xl p-6 shadow-md">
+      <h2 class="text-2xl font-semibold border-b-2 border-blue-500 pb-2 mb-4">About Me</h2>
+      <p class="leading-relaxed">I'm Md Syful Islam Siyam, a CSE student passionate about cybersecurity, real-time systems, and clean, scalable code. I love building secure tech with real impact.</p>
+    </section>
+
+    <!-- Education -->
+    <section class="bg-white rounded-xl p-6 shadow-md">
+      <h2 class="text-2xl font-semibold border-b-2 border-blue-500 pb-2 mb-4">Education</h2>
+      <ul class="list-disc list-inside space-y-2">
+        <li><strong>Daffodil International University</strong> – BSc in CSE (Expected 2025)</li>
+        <li><strong>BIRSHRESTHO Noor Mohammad Public School and College</strong> – HSC, GPA: 5.00</li>
+      </ul>
+    </section>
+
+    <!-- Skills -->
+    <section class="bg-white rounded-xl p-6 shadow-md">
+      <h2 class="text-2xl font-semibold border-b-2 border-blue-500 pb-2 mb-4">Skills</h2>
+      <ul class="grid grid-cols-2 gap-3">
+        <li>✅ C, C++, Python</li>
+        <li>✅ HTML, CSS, JavaScript</li>
+        <li>✅ Word, Excel, PowerPoint</li>
+        <li>✅ Public Communication</li>
+        <li>✅ Cybersecurity, Clean Code</li>
+      </ul>
+    </section>
+
+    <!-- Volunteering -->
+    <section class="bg-white rounded-xl p-6 shadow-md">
+      <h2 class="text-2xl font-semibold border-b-2 border-blue-500 pb-2 mb-4">Volunteering</h2>
+      <ul class="list-disc list-inside">
+        <li>BDRCS – Disaster Relief</li>
+        <li>YASD – Environmental Projects</li>
+      </ul>
+    </section>
+
+    <!-- Languages -->
+    <section class="bg-white rounded-xl p-6 shadow-md">
+      <h2 class="text-2xl font-semibold border-b-2 border-blue-500 pb-2 mb-4">Languages</h2>
+      <ul class="list-disc list-inside">
+        <li>Bangla – Native</li>
+        <li>English – Professional</li>
+        <li>Hindi – Limited</li>
+      </ul>
+    </section>
+
+    <!-- Goals -->
+    <section class="bg-white rounded-xl p-6 shadow-md">
+      <h2 class="text-2xl font-semibold border-b-2 border-blue-500 pb-2 mb-4">Future Goals</h2>
+      <p>Become a global cybersecurity expert and architect secure, scalable real-time systems with cloud and embedded technologies.</p>
+    </section>
+
+    <!-- Contact -->
+    <section class="bg-white rounded-xl p-6 shadow-md">
+      <h2 class="text-2xl font-semibold border-b-2 border-blue-500 pb-2 mb-4">Contact</h2>
+      <p>Email: <a href="mailto:officehub.siyam@gmail.com" class="text-blue-600">officehub.siyam@gmail.com</a></p>
+      <p>LinkedIn: <a href="https://www.linkedin.com/in/siyam-itprofessional" class="text-blue-600">siyam-itprofessional</a></p>
+      <p>Twitter: <a href="https://twitter.com/siyamx360" class="text-blue-600">@siyamx360</a></p>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-blue-900 text-white text-center py-4 mt-8">
+    <p>&copy; 2025 Md Syful Islam Siyam. All rights reserved.</p>
+  </footer>
+
+  <!-- Typed.js script -->
+  <script>
+    new Typed("#typed", {
+      strings: ["CSE Student", "Web App Developer", "Cybersecurity Enthusiast"],
+      typeSpeed: 50,
+      backSpeed: 30,
+      loop: true
+    });
+  </script>
 </body>
+
 </html>
